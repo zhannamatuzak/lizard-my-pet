@@ -21,3 +21,11 @@ This project was deployed using [Heroku](https://heroku.com/), [Cloudinary](http
 
 If everything works, it will appear this:
 
+## Credits
+
+#### Code
+
+ 1. [MinValueValidator](https://stackoverflow.com/questions/44022056/validators-minvaluevalidator-does-not-work-in-django) -  MinValueValidator was used to help validate the max_size, lifespan, proce_from, price_to fields in the `LizardModel` in Models.py file, to ensure that the values of max_size, lifespan, proce_from, price_to are greater than or equal to 1.
+ 2. []() -  
+ 3. []() -
+ 4. []() - 

@@ -36,4 +36,22 @@ class Lizard(models.Model):
     def __str__(self):
         return self.title
 
+class Comment(models.Model):
+    """
+    Comments database model
+    """
+    post = models.ForeignKey(
+        Lizard, on_delete=models.CASCADE, related_name="comments")
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    body = models.TextField()
+    created_on = models.DateField(auto_now_add=True)
+    is_question = models.BooleanField(default=False)
 
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return f"Comment {self.body} by {self.user}"
+
+    def get_comment_type(self):
+        return "Question" if self.is_question else "Experience"

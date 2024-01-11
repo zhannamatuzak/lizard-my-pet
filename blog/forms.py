@@ -2,21 +2,26 @@
 from django import forms
 from .models import Comment
 
-class CommentForm(forms.ModelForm):
-    """Comment input form"""
+class ExperienceForm(forms.ModelForm):
+    """Experience input form"""
     class Meta:
         "Metadata about form"
-        model = Comment
-        fields = ('is_question','body',)
+        model = Experience
+        fields = ('pet_name', 'size','body',)
         labels = {
-            'body': ''
+            'pet_name': "Write your pet's name"
+            'size': 'What is approximate size oy your pet?'
+            'body': 'Share your experience about your pet here.'
         }
-        widgets = {
-            'is_question' = forms.CheckboxInput(attrs={
-                'class': 'custom-checkbox'}),
-            'body': forms.Textarea(attrs={
-                'class': 'form-control',
-                'placeholder': 'Share your experience or ask a question',
-                'rows': '4',
-                'cols': '40'}),
+
+class EditForm(forms.ModelForm):
+    """Experience input form"""
+    class Meta:
+        "Metadata about form"
+        model = Experience
+        fields = ('pet_name', 'size','body',)
+        labels = {
+            'pet_name': "Correct name"
+            'size': 'Correct size'
+            'body': 'Make your changes below and click save.'
         }

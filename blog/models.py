@@ -53,5 +53,4 @@ class Experience(models.Model):
         return f"Experience {self.body} by {self.user}"
 
     def number_of_likes(self):
-    "Count number of likes per shared experience"
         return self.likes.count()

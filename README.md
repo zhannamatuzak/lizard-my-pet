@@ -47,6 +47,10 @@ Here are the steps to change the name:
 - Update ASGI_APPLICATION setting to use the new project name.
 
 
+
+[Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/)
+
+
 ## Credits
 
 #### Code

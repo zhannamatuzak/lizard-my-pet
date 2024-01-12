@@ -43,9 +43,15 @@ class Experience(models.Model):
     size = models.IntegerField(validators=[MinValueValidator(1)], blank=True)
     body = models.TextField()
     created_on = models.DateField(auto_now_add=True)
-
+    likes = models.ManyToManyField(
+        User, related_name='post_like', blank=True)
+    
     class Meta:
         ordering = ['created_on']
 
     def __str__(self):
         return f"Experience {self.body} by {self.user}"
+
+    def number_of_likes(self):
+    "Count number of likes per post"
+        return self.likes.count()

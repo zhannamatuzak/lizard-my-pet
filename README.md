@@ -14,22 +14,30 @@ This project was deployed using [Heroku](https://heroku.com/), [Cloudinary](http
 
 #### Installing libraries
 
-- Install **Gunicorn** (server used to run Django on Heroku): ``pip3 install django gunicorn``
-- Install **pyscopg2** (connects to PostgreSQL): ``pip 3 install dj_database_url pyscopg2``
-- Install **Cloudinary** (host static files and images): ``pip3 install dj3-cloudinary-storage``
+- Install **Gunicorn** (server used to run Django on Heroku): 
+``pip3 install django gunicorn``
+- Install **pyscopg2** (connects to PostgreSQL): 
+``pip 3 install dj_database_url pyscopg2``
+- Install **Cloudinary** (host static files and images): 
+``pip3 install dj3-cloudinary-storage``
 - Install **Whitenoise** (prevent issues with Heroku not rendering custom stylesheet): ``pip3 install whitenoise``
 
 #### Getting set up
 
-- Create **requirements.txt file** (keeps track of the modules and packages used in your projects): ``pip3 freeze --local > requirements.txt``
-- Create **new Django project**: ``django-admin startproject lizardmypet .``
-- Create **blog app** (name of the repo will be "blog"): ``python3 manage.py startapp blog``
+- Create **requirements.txt file** (keeps track of the modules and packages used in your projects): 
+``pip3 freeze --local > requirements.txt``
+- Create **new Django project**: 
+``django-admin startproject lizardmypet .``
+- Create **blog app** (name of the repo will be "blog"): 
+``python3 manage.py startapp blog``
 - Create **add blog app to installed apps** (the blog app needs to be added to the list of installed apps in the settings.py)
-- Migrate **changes to the database** (when there is a new app, migrations are automatically created): ``python3 manage.py migrate``
-- Run **project** (It will show the error states your specific host. Copy and paste it into the settings.py file ALLOWED_HOSTS.): ``python3 manage.py runserver``
+- Migrate **changes to the database** (when there is a new app, migrations are automatically created): 
+``python3 manage.py migrate``
+- Run **project** (It will show the error states your specific host. Copy and paste it into the settings.py file ALLOWED_HOSTS.): 
+``python3 manage.py runserver``
 
 If everything works, it will appear this:
-[Django: The install worked successfully!](documentation/django_setup.png)
+![Django: The install worked successfully!](documentation/django_setup.png)
 
 #### Creating the Heroku App
 
@@ -52,27 +60,28 @@ This is necessary to create a database that can be accessed by Heroku. The datab
 - Log into ElephantSQL and go to Dashboard;
 - Click **Create New Instance**
 
-[New Instange ElephantSQL](documentation/new-instance-sql.png)
+![New Instance ElephantSQL](documentation/new-instance-sql.png)
 
 - Set up a plan by providing a Name (project name) and select a Plan (for this project the free plan "Tiny Turtle" was chosen). Tags are optional;
 
-[Plan and Name ElephantSQL](documentation/name-plan-sql.png)
+![Plan and Name ElephantSQL](documentation/name-plan-sql.png)
 
 - Click **Select Region** and choose appropriate Data center;
 
-[Select region and data center](documentation/datacenter_sql.png)
+![Select region and data center](documentation/datacenter_sql.png)
 
 - Click **Review**, check all details and click **Create Instance**;
 - Return to Dashboard on click on the name of the newly created instance;
 - Copy the database URL from the details section.
 
-[Details section](documentation/details_sql.png)
+![Details section](documentation/details_sql.png)
 
 #### Hiding sensitive information
 
 - Create ``env.py`` file and ensure it is included in the ``.gitignore`` file
 - Add ``import os`` to env.py file and set environment variable **DATABASE_URL** to the URL copied from ElephantSQL (``os.environ["DATABASE_URL"]="<copiedURL>"``)
-- Below, set **SECRET_KEY** variable (``os.environ["SECRET_KEY"]="mysecretkey"``.
+- Below, set **SECRET_KEY** variable 
+``os.environ["SECRET_KEY"]="mysecretkey"``.
 Hier I have generated the key: [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/)
 
 #### Update Settings
@@ -119,14 +128,15 @@ Hier I have generated the key: [Django Secret Key Generator](https://miniwebtool
     ````
     ALLOWED_HOSTS = ['app-name.herokuapp.com', 'localhost']
     ````
-If everything works, it looks like this:
+If everything works successfully during the deployment process, it will look like this:
 
-[No error Heroku](documentation/no-error-heroku.png)
+![No error Heroku](documentation/no-error-heroku.png)
+
 ##### Fixed Bugs
 
 - Problem 1:  When renaming the my Django project, I have manually changed the project folder's name only.
 
-  - *Solution 1: Renaming a Django project typically involves manually changing the project folder's name, but it also requires updating references to the old project name in various files within the project. Here's a summary of the steps involved:
+  - *Solution 1: Renaming a Django project typically involves manually changing the project folder's name, but it also requires updating references to the old project name in various files within the project. Here's a summary of the steps involved:*
     - Rename the Project Directory;
     - Rename the root directory of your Django project to the new project name;
     - Update manage.py and wsgi.py Files;
@@ -143,7 +153,7 @@ If everything works, it looks like this:
         - Inside wsgi.py, find the line that looks like this:
         ``os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'oldproject.settings')``
         - Update the project name to the new name:
-        ``os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'newproject.settings')``*
+        ``os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'newproject.settings')``
 
 - Problem 2: By deploying the project to Heroku I have got H10-App Crashed Error.
   - *Solution 2: I found the answer to this problem from [Igor Basuga](https://github.com/bravoalpha79) on slack.

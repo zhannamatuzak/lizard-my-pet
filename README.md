@@ -6,35 +6,102 @@ This Django project functions as a specialized blog designed for individuals con
 
 [Link to live site](https://lizard-my-pet-59221c9c04e1.herokuapp.com/) 
 
+## Local deployment
+
+*Note:*
+  - This project requires to install all the requirements:
+  - Open the terminal window and type:
+  
+  ```
+  pip3 install -r requirements.txt
+  ```
+
+Create a local copy of the GitHub repository by following one of the two processes below:
+
+- Download ZIP file:
+  1. Go to the [GitHub Repo page](https://github.com/zhannamatuzak/lizard-my-pet).
+  1. Click the Code button and download the ZIP file containing the project.
+  1. Extract the ZIP file to a location on your PC.
+
+- Clone the repository:
+  1. Open a folder on your computer with the terminal.
+  1. Run the following command:
+
+  ```
+  git clone https://github.com/zhannamatuzak/lizard-my-pet.git
+  ```
+
+- Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+
+  [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/IuliiaKonovalova/issue_tracker)
+
+---
 
 ## Deployment
 
 This project was deployed using [Heroku](https://heroku.com/), [Cloudinary](https://cloudinary.com/), [ElephantSQL](https://www.elephantsql.com/) and [Whitenoise](https://whitenoise.evans.io/en/latest/). 
 
+using Gitpod, you can click below to create your own workspace using this repository.
+
 
 #### Installing libraries
 
-- Install **Gunicorn** (server used to run Django on Heroku): 
-``pip3 install django gunicorn``
+- Install **Gunicorn** (server used to run Django on Heroku):
+
+```
+pip3 install django gunicorn
+```
+
 - Install **pyscopg2** (connects to PostgreSQL): 
-``pip 3 install dj_database_url pyscopg2``
-- Install **Cloudinary** (host static files and images): 
-``pip3 install dj3-cloudinary-storage``
-- Install **Whitenoise** (prevent issues with Heroku not rendering custom stylesheet): ``pip3 install whitenoise``
+
+```
+pip 3 install dj_database_url pyscopg2
+```
+
+- Install **Cloudinary** (host static files and images):
+
+```
+pip3 install dj3-cloudinary-storage
+```
+
+- Install **Whitenoise** (prevent issues with Heroku not rendering custom stylesheet): 
+
+```
+pip3 install whitenoise
+```
 
 #### Getting set up
 
 - Create **requirements.txt file** (keeps track of the modules and packages used in your projects): 
-``pip3 freeze --local > requirements.txt``
+
+```
+pip3 freeze --local > requirements.txt
+```
+
 - Create **new Django project**: 
-``django-admin startproject lizardmypet .``
+
+```
+django-admin startproject lizardmypet .
+```
+
 - Create **blog app** (name of the repo will be "blog"): 
-``python3 manage.py startapp blog``
+
+```
+python3 manage.py startapp blog
+```
+
 - Create **add blog app to installed apps** (the blog app needs to be added to the list of installed apps in the settings.py)
 - Migrate **changes to the database** (when there is a new app, migrations are automatically created): 
-``python3 manage.py migrate``
+
+```
+python3 manage.py migrate
+```
+
 - Run **project** (It will show the error states your specific host. Copy and paste it into the settings.py file ALLOWED_HOSTS.): 
-``python3 manage.py runserver``
+
+```
+python3 manage.py runserver
+```
 
 If everything works, it will appear this:
 ![Django: The install worked successfully!](documentation/django_setup.png)
@@ -46,10 +113,21 @@ If everything works, it will appear this:
 - Click **New** and select **Create new app** from the drop-down;
 - Name app appropriately and choose relevant region, then click **Create App**;
 - Install the webserver gunicorn and add it to the project requirements:
-``pip3 install gunicorn~=20.1``
-``pip3 freeze --local > requirements.txt``
+
+```
+pip3 install gunicorn~=20.1
+```
+
+```
+pip3 freeze --local > requirements.txt
+```
+
 - Create a Procfile at the root directory of the project, declare the process as web and add a start command:
-``web: gunicorn codestar.wsgi``
+
+```
+web: gunicorn codestar.wsgi
+```
+
 **Hint:** Note there is a space after the colon.
 **Hint:** The Procfile has no file extension.
 
@@ -76,12 +154,27 @@ This is necessary to create a database that can be accessed by Heroku. The datab
 
 ![Details section](documentation/details_sql.png)
 
+- Create a superuser for your database:
+
+```
+ python manage.py createsuperuser
+ ```
+
 #### Hiding sensitive information
 
 - Create ``env.py`` file and ensure it is included in the ``.gitignore`` file
-- Add ``import os`` to env.py file and set environment variable **DATABASE_URL** to the URL copied from ElephantSQL (``os.environ["DATABASE_URL"]="<copiedURL>"``)
-- Below, set **SECRET_KEY** variable 
-``os.environ["SECRET_KEY"]="mysecretkey"``.
+- Add ``import os`` to env.py file and set environment variable **DATABASE_URL** to the URL copied from ElephantSQL:
+
+```
+os.environ["DATABASE_URL"]="<copiedURL>"
+```
+
+- Below, set **SECRET_KEY** variable:
+
+```
+os.environ["SECRET_KEY"]="mysecretkey"
+```
+
 Hier I have generated the key: [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/)
 
 #### Update Settings
@@ -93,7 +186,11 @@ Hier I have generated the key: [Django Secret Key Generator](https://miniwebtool
       if os.path.isfile('env.py'):
           import env
     ````
-- Remove insecure secret key provide by Django in settings.py and refer to variable in env.py instead (``SECRET_KEY = os.environ.get('SECRET_KEY')``)
+- Remove insecure secret key provide by Django in settings.py and refer to variable in env.py instead:
+
+```
+SECRET_KEY = os.environ.get('SECRET_KEY')
+```
 
 - To connect to new database, replace provided **DATABASE** variable with 
     ````
@@ -151,14 +248,23 @@ If everything works successfully during the deployment process, it will look lik
     - Update wsgi.py:
         - Open the wsgi.py file in the root of your project folder.
         - Inside wsgi.py, find the line that looks like this:
-        ``os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'oldproject.settings')``
+
+        ```
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'oldproject.settings')
+        ```
+
         - Update the project name to the new name:
-        ``os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'newproject.settings')``
+
+        ```
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'newproject.settings')
+        ```
 
 - Problem 2: By deploying the project to Heroku I have got H10-App Crashed Error.
   - *Solution 2: I found the answer to this problem from [Igor Basuga](https://github.com/bravoalpha79) on slack.
   So, I checked, as Igor recommend, if Requirements.txt file is not updated, if Typo is in Procfile, or if one or more of the required Heroku Config Vars missing. These three possible issues I have not had. 
   Finally, I checked other files and found out that when changing the project name, my changes to wsgi.py file was not saved.*
+
+---
 
 ## Credits
 

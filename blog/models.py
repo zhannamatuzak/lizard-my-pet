@@ -2,7 +2,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
-from django.core.validators import MinValueValidator
+from django.core.validators import MinValueValidator, MaxLengthValidator
 
 DIET = ((0, "Not defined"), (1, "Omnivorous"), (2, "Herbivorous"),
           (3, "Insectivorous"))
@@ -16,7 +16,14 @@ class Lizard(models.Model):
     slug = models.SlugField(max_length=100, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='lizard_post')
-    description = models.TextField()
+    description = models.TextField(
+        validators=[
+            RegexValidator(
+                regex=r'^[A-Za-z0-9\s\.,!?]*$',
+                message="Ensure the body only contains letters, numbers, spaces, commas, periods, and exclamation/question marks."
+            ),
+        ],
+    )
     image = CloudinaryField('image', default='default')
     created_on = models.DateField(auto_now_add=True)
     max_size = models.IntegerField(validators=[MinValueValidator(1)])
@@ -24,7 +31,14 @@ class Lizard(models.Model):
     price_from = models.IntegerField(validators=[MinValueValidator(1)])
     price_to = models.IntegerField(validators=[MinValueValidator(1)])
     diet = models.IntegerField(choices=DIET, default=0)
-    diet_list = models.TextField()
+    diet_list = models.TextField(
+        validators=[
+            RegexValidator(
+                regex=r'^[A-Za-z0-9\s\.,!?]*$', 
+                message="Ensure the body only contains letters, numbers, spaces, commas, periods, and exclamation/question marks."
+            ),
+        ],
+    )
     status = models.IntegerField(choices=STATUS, default=0)
    
 
@@ -42,8 +56,20 @@ class Experience(models.Model):
         Lizard, on_delete=models.CASCADE, related_name="experiences")
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     pet_name = models.CharField(max_length=80, blank=True)
-    size = models.IntegerField(validators=[MinValueValidator(1)], blank=True)
-    body = models.TextField()
+    size = models.IntegerField(
+        validators=[
+            MinValueValidator(1, message="Ensure this value is greater than or equal to 1."),
+            MaxValueValidator(100, message="Ensure this value is less than or equal to 100."),
+        ],
+        blank=True
+    )
+    body = models.TextField(
+        validators=[
+            RegexValidator(
+                regex=r'^[A-Za-z0-9\s\.,!?]*$',  
+                message="Ensure the body only contains letters, numbers, spaces, commas, periods, and exclamation/question marks."
+            ),
+        ],
     created_on = models.DateField(auto_now_add=True)
     likes = models.ManyToManyField(
         User, related_name='post_like', blank=True)

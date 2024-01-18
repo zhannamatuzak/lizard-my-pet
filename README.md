@@ -10,19 +10,98 @@ This Django project functions as a specialized blog designed for individuals con
 
 |Milestone | [Create the full Backend][https://github.com/zhannamatuzak/lizard-my-pet/milestone/1] |
 | Epic    |[Full User Managment](https://github.com/zhannamatuzak/lizard-my-pet/issues/3)  |
-|-------------|-------------|
+
 | Title | Number | Definition | Completed? | Label |
 |-------|--------|------------|------------|-------|
 | USER STORY: Log in | [#2](https://github.com/zhannamatuzak/lizard-my-pet/issues/2) | As a **USER** I would like to log in with the registration credentials. | [x] | Must Have |
 | USER STORY: Registration  | [#1](https://github.com/zhannamatuzak/lizard-my-pet/issues/1) | As a **USER**, I would like to have a registration form with no need of email authentication, so I can start writing experiences right away. | [x] | Must Have |
 | USER STORY: Log out | [#4](https://github.com/zhannamatuzak/lizard-my-pet/issues/4) | As a **USER**, I would like to be able to log out. | [x] | Must Have |
 | USER STORY: USER STORY - Authorization | [#4](https://github.com/AlfredA93/recipe-repo-2/issues/4) | As an ADMIN, I would like that the user must be authorized in order to write his/her experiences (comments) under the posts. | [x] | Must Have |
+
 | Epic    |[Manage posts]()  |
+
 | Title | Number | Definition | Completed? | Label |
 |-------|--------|------------|------------|-------|
 | USER STORY: Log in | [#2]() | | [x] | Must Have |
 | USER STORY: Registration  | [#1]() |  | [x] | Must Have |
 | USER STORY: Log out | [#4]() |  | [x] | Must Have |
+
+---
+
+## Database Design
+
+### Create the models (DB structure)
+
+The DB consists of three models:
+
+* **USER:** where all data of each registered user is stored.
+
+* **LLIZARD:** where all data of each post is stored.
+
+* **EXPERIENCE:** where all data of each written experience (comment) is stored.
+
+he database model diagram was designed using [Lucidchart](https://www.lucidchart.com/pages/).
+
+![Data model](documentation/data_model.png)
+
+**USER MODEL**
+
+In this project was used Django's contrib.auth, a built-in Django application, that provides the infrastructure for handling user authentication and authorization. It includes models, views, and forms to manage user authentication, password reset, permissions, and more.
+
+![User model](documentation/user_model.png)
+
+#### Custom Models
+
+**LIZARD MODEL**
+
+The Lizard model was customised according to the data needed for the "Lizard is my pet" blog concept.
+
+| key          | Database Key   | Type             | Validation   |
+|--------------|----------------|------------------|--------------|
+|              | title          | CharField        | max_length=100, unique=True |           
+|              | slug           | SlugField        | max_length=100, unique=True |
+|   FK         | author         | User model       | User, on_delete=models.CASCADE |
+|              | description    | TextField        | validators=[RegexValidator(regex=r'^[A-Za-z0-9\s\.,!?]*$')] |
+|              | image          | CloudinaryField  | default='default' |
+|              | created_on     | DateField        | uto_now_add=True |
+|              | max_size       | IntegerField     | validators=[MinValueValidator(1)] |
+|              | lifespan       | IntegerField     | validators=[MinValueValidator(1)] |
+|              | price_from     | IntegerField     | validators=[MinValueValidator(1)] |
+|              | price_to       | User Model       | validators=[MinValueValidator(1)] |
+|              | diet           | IntegerField     | choices=DIET, default=0 |
+|              | diet_list      | TextField        | validators=[RegexValidator(regex=r'^[A-Za-z0-9\s\.,!?]*$')] |
+|              | status         | IntegerField     | choices=STATUS, default=0 |
+
+
+Variables for **choice:**
+
+```
+DIET = ((0, "Not defined"), (1, "Omnivorous"), (2, "Herbivorous"),
+          (3, "Insectivorous"))
+STATUS = ((0, "Draft"), (1, "Published"))
+```
+
+<br>
+
+**EXPERIENCE MODEL** 
+
+| key          | Database Key   | Type             | Validation   |
+|--------------|----------------|------------------|--------------|
+|     FK       | post           | Lizard Model     | Lizard, on_delete=models.CASCADE |           
+|     FK       | user           | User Model       | User, on_delete=models.CASCADE |
+|              | pet_name       | CharField        | max_length=80, blank=True|
+|              | size           | IntegerField     | validators=[MinValueValidator(1), MaxValueValidator(100)], blank=True |
+|              | body           | TextField        | validators=[RegexValidator(regex=r'^[A-Za-z0-9\s\.,!?]*$')] |
+|              | created_on     | DateField        | uto_now_add=True |
+|              | likes          | ManyToManyField  | User, related_name='post_like', blank=True |
+
+
+- [X] C - Site users can create their own experiences (comments) using a validated form on each blog post.
+- [X] R - Site users can read shared experience (comments) from other users.
+- [X] U - Site users are able to update/edit their shared experiecnes (comments) using a form, and can like a shared experience (comments), updating the details and analytics for each shared experience.
+- [X] D - Site users are able to delete their shared experiences (comments).
+
+---
 
 ## Local deployment
 

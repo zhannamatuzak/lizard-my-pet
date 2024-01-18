@@ -6,6 +6,24 @@ This Django project functions as a specialized blog designed for individuals con
 
 [Link to live site](https://lizard-my-pet-59221c9c04e1.herokuapp.com/) 
 
+## User Stories 
+
+|Milestone | [Create the full Backend][https://github.com/zhannamatuzak/lizard-my-pet/milestone/1] |
+| Epic    |[Full User Managment](https://github.com/zhannamatuzak/lizard-my-pet/issues/3)  |
+|-------------|-------------|
+| Title | Number | Definition | Completed? | Label |
+|-------|--------|------------|------------|-------|
+| USER STORY: Log in | [#2](https://github.com/zhannamatuzak/lizard-my-pet/issues/2) | As a **USER** I would like to log in with the registration credentials. | [x] | Must Have |
+| USER STORY: Registration  | [#1](https://github.com/zhannamatuzak/lizard-my-pet/issues/1) | As a **USER**, I would like to have a registration form with no need of email authentication, so I can start writing experiences right away. | [x] | Must Have |
+| USER STORY: Log out | [#4](https://github.com/zhannamatuzak/lizard-my-pet/issues/4) | As a **USER**, I would like to be able to log out. | [x] | Must Have |
+| USER STORY: USER STORY - Authorization | [#4](https://github.com/AlfredA93/recipe-repo-2/issues/4) | As an ADMIN, I would like that the user must be authorized in order to write his/her experiences (comments) under the posts. | [x] | Must Have |
+| Epic    |[Manage posts]()  |
+| Title | Number | Definition | Completed? | Label |
+|-------|--------|------------|------------|-------|
+| USER STORY: Log in | [#2]() | | [x] | Must Have |
+| USER STORY: Registration  | [#1]() |  | [x] | Must Have |
+| USER STORY: Log out | [#4]() |  | [x] | Must Have |
+
 ## Local deployment
 
 *Note:*
@@ -112,6 +130,8 @@ If everything works, it will appear this:
 - In your new app’s settings tab, ensure the Config Var DISABLE_COLLECTSTATIC key has a value of 1.
 - Click **New** and select **Create new app** from the drop-down;
 - Name app appropriately and choose relevant region, then click **Create App**;
+- Connect your repository to Heroku;
+- Deploy the app to Heroku by clicking "Deploy Branch" button. If you want to enable auto-deployment, click "Enable Automatic Deployment";
 - Install the webserver gunicorn and add it to the project requirements:
 
 ```
@@ -198,6 +218,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
     ````
+- Change the value of DEBUG back to True as this will ensure that you get detailed errors to ease debugging during development.
 - Save and migrate all changes made.
 `python3 manage.py migrate``
 
@@ -228,6 +249,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 If everything works successfully during the deployment process, it will look like this:
 
 ![No error Heroku](documentation/no-error-heroku.png)
+
+#### Final Deployment
+
+- Set debug to False locally + delete DISABLE_COLLECTSTATIC from config vars in Heroku dashboard.
+- Commit and push the changes to GitHub.
 
 ##### Fixed Bugs
 
@@ -262,7 +288,7 @@ If everything works successfully during the deployment process, it will look lik
 - Problem 2: By deploying the project to Heroku I have got H10-App Crashed Error.
   - *Solution 2: I found the answer to this problem from [Igor Basuga](https://github.com/bravoalpha79) on slack.
   So, I checked, as Igor recommend, if Requirements.txt file is not updated, if Typo is in Procfile, or if one or more of the required Heroku Config Vars missing. These three possible issues I have not had. 
-  Finally, I checked other files and found out that when changing the project name, my changes to wsgi.py file was not saved.*
+  Finally, I checked other files and found out that when changing the project name, my changes to wsgi.py file were not saved.*
 
 ---
 

@@ -6,6 +6,7 @@ from django.core.validators import MinValueValidator
 
 DIET = ((0, "Not defined"), (1, "Omnivorous"), (2, "Herbivorous"),
           (3, "Insectivorous"))
+STATUS = ((0, "Draft"), (1, "Published"))
 
 class Lizard(models.Model):
     """Lizard Database Model
@@ -24,6 +25,7 @@ class Lizard(models.Model):
     price_to = models.IntegerField(validators=[MinValueValidator(1)])
     diet = models.IntegerField(choices=DIET, default=0)
     diet_list = models.TextField()
+    status = models.IntegerField(choices=STATUS, default=0)
    
 
     class Meta:

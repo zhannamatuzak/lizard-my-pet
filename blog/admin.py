@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Lizard
+from .models import Experience
 
-# Register your models here.
 admin.site.register(Lizard)
+admin.site.register(Experience)

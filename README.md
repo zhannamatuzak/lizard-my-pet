@@ -8,8 +8,11 @@ This Django project functions as a specialized blog designed for individuals con
 
 ## User Stories 
 
-|Milestone | [Create the full Backend][https://github.com/zhannamatuzak/lizard-my-pet/milestone/1] |
-| Epic    |[Full User Managment](https://github.com/zhannamatuzak/lizard-my-pet/issues/3)  |
+| Milestone | [Create the full Backend](https://github.com/zhannamatuzak/lizard-my-pet/milestone/1) |
+------------|---------------------------------------------------------------------------------------|
+
+| Epic    | [Full User Managment](https://github.com/zhannamatuzak/lizard-my-pet/issues/3)  |
+----------|--------------------------------------------------------------------------------|
 
 | Title | Number | Definition | Completed? | Label |
 |-------|--------|------------|------------|-------|
@@ -18,7 +21,8 @@ This Django project functions as a specialized blog designed for individuals con
 | USER STORY: Log out | [#4](https://github.com/zhannamatuzak/lizard-my-pet/issues/4) | As a **USER**, I would like to be able to log out. | [x] | Must Have |
 | USER STORY: USER STORY - Authorization | [#4](https://github.com/AlfredA93/recipe-repo-2/issues/4) | As an ADMIN, I would like that the user must be authorized in order to write his/her experiences (comments) under the posts. | [x] | Must Have |
 
-| Epic    |[Manage posts]()  |
+| Epic    | [Manage posts]()  |
+----------|-------------------|
 
 | Title | Number | Definition | Completed? | Label |
 |-------|--------|------------|------------|-------|
@@ -30,9 +34,7 @@ This Django project functions as a specialized blog designed for individuals con
 
 ## Database Design
 
-### Create the models (DB structure)
-
-The DB consists of three models:
+The Database consists of three models:
 
 * **USER:** where all data of each registered user is stored.
 
@@ -40,17 +42,17 @@ The DB consists of three models:
 
 * **EXPERIENCE:** where all data of each written experience (comment) is stored.
 
-he database model diagram was designed using [Lucidchart](https://www.lucidchart.com/pages/).
+The database model diagram was designed using [Lucidchart](https://www.lucidchart.com/pages/).
 
 ![Data model](documentation/data_model.png)
 
 **USER MODEL**
 
-In this project was used Django's contrib.auth, a built-in Django application, that provides the infrastructure for handling user authentication and authorization. It includes models, views, and forms to manage user authentication, password reset, permissions, and more.
+In this project, Django's built-in application, contrib.auth, was utilized to manage user authentication and authorization. This application provides a comprehensive infrastructure encompassing models, views, and forms. Its functionalities extend to handling user authentication, password reset mechanisms, permissions, and more.
 
 ![User model](documentation/user_model.png)
 
-#### Custom Models
+**Custom Models:**
 
 **LIZARD MODEL**
 
@@ -89,9 +91,9 @@ STATUS = ((0, "Draft"), (1, "Published"))
 |--------------|----------------|------------------|--------------|
 |     FK       | post           | Lizard Model     | Lizard, on_delete=models.CASCADE |           
 |     FK       | user           | User Model       | User, on_delete=models.CASCADE |
-|              | pet_name       | CharField        | max_length=80, blank=True|
-|              | size           | IntegerField     | validators=[MinValueValidator(1), MaxValueValidator(100)], blank=True |
-|              | body           | TextField        | validators=[RegexValidator(regex=r'^[A-Za-z0-9\s\.,!?]*$')] |
+|              | pet_name       | CharField        | default="What's your pet name?", max_length=80, validators=[RegexValidator(regex=r'^[a-zA-Z]*$',)] |
+|              | size           | IntegerField     | default=0, validators=[MinValueValidator(1) MaxValueValidator(100)] |
+|              | body           | TextField        | default="Here can be your experience...",max_length=800 |
 |              | created_on     | DateField        | uto_now_add=True |
 |              | likes          | ManyToManyField  | User, related_name='post_like', blank=True |
 

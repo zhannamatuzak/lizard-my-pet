@@ -19,7 +19,7 @@ This Django project functions as a specialized blog designed for individuals con
 | USER STORY: Log in | [#2](https://github.com/zhannamatuzak/lizard-my-pet/issues/2) | As a **USER** I would like to log in with the registration credentials. | [x] | Must Have |
 | USER STORY: Registration  | [#1](https://github.com/zhannamatuzak/lizard-my-pet/issues/1) | As a **USER**, I would like to have a registration form with no need of email authentication, so I can start writing experiences right away. | [x] | Must Have |
 | USER STORY: Log out | [#4](https://github.com/zhannamatuzak/lizard-my-pet/issues/4) | As a **USER**, I would like to be able to log out. | [x] | Must Have |
-| USER STORY: USER STORY - Authorization | [#4](https://github.com/AlfredA93/recipe-repo-2/issues/4) | As an ADMIN, I would like that the user must be authorized in order to write his/her experiences (comments) under the posts. | [x] | Must Have |
+| USER STORY: USER STORY - Authorization | [#4](https://github.com/AlfredA93/recipe-repo-2/issues/4) | As an **ADMIN**, I would like that the user must be authorized in order to write his/her experiences (comments) under the posts. | [x] | Must Have |
 
 | Epic    | [Manage posts]()  |
 ----------|-------------------|
@@ -83,6 +83,16 @@ DIET = ((0, "Not defined"), (1, "Omnivorous"), (2, "Herbivorous"),
 STATUS = ((0, "Draft"), (1, "Published"))
 ```
 
+**Methods:**
+
+```
+  class Meta:
+        ordering = ['-created_on']
+
+    def __str__(self):
+        return self.title
+```
+
 <br>
 
 **EXPERIENCE MODEL** 
@@ -92,11 +102,23 @@ STATUS = ((0, "Draft"), (1, "Published"))
 |     FK       | post           | Lizard Model     | Lizard, on_delete=models.CASCADE |           
 |     FK       | user           | User Model       | User, on_delete=models.CASCADE |
 |              | pet_name       | CharField        | default="What's your pet name?", max_length=80, validators=[RegexValidator(regex=r'^[a-zA-Z]*$',)] |
-|              | size           | IntegerField     | default=0, validators=[MinValueValidator(1) MaxValueValidator(100)] |
-|              | body           | TextField        | default="Here can be your experience...",max_length=800 |
+|              | size           | IntegerField     | default=0, validators=[MinValueValidator(1), MaxValueValidator(100)] |
+|              | body           | TextField        | default="Here can be your experience...", max_length=800 |
 |              | created_on     | DateField        | uto_now_add=True |
 |              | likes          | ManyToManyField  | User, related_name='post_like', blank=True |
 
+**Methods:**
+
+```
+class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return f"Experience {self.body} by {self.user}, petname: {self.pet_name}, size: {self.size}cm"
+
+    def number_of_likes(self):
+        return self.likes.count()
+```
 
 - [X] C - Site users can create their own experiences (comments) using a validated form on each blog post.
 - [X] R - Site users can read shared experience (comments) from other users.
@@ -203,6 +225,7 @@ python3 manage.py runserver
 ```
 
 If everything works, it will appear this:
+
 ![Django: The install worked successfully!](documentation/django_setup.png)
 
 #### Creating the Heroku App
@@ -213,6 +236,9 @@ If everything works, it will appear this:
 - Name app appropriately and choose relevant region, then click **Create App**;
 - Connect your repository to Heroku;
 - Deploy the app to Heroku by clicking "Deploy Branch" button. If you want to enable auto-deployment, click "Enable Automatic Deployment";
+
+![Heroku: Automatic Deployment](documentation/heroku_deploy.png)
+
 - Install the webserver gunicorn and add it to the project requirements:
 
 ```
@@ -311,6 +337,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 #### Connect to Cloudinary
 
 - In Cloudinary dashboard, copy **API Environment variable**
+
+![Cloudinary API](documentation/cloudinary_api.png)
+
 - In ``env.py`` file, add new variable ``os.environ["CLOUDINARY_URL"] = "<copied_variable"`` and remove ``CLOUDINARY_URL=`` from the variable string
 - Add same variable value as new Heroku config var named **CLOUDINARY_URL**
 - In ``settings.py``, in ``INSTALLED_APPS`` list, above ``django.contrib.staticfiles`` add ``cloudinary_storage``, below add ``cloudinary``

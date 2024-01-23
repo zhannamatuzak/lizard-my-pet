@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from django.views import generic
+from .models import Lizard
 
-# Create your views here.
+class LizardList(generic.ListView):
+    model = Lizard

@@ -1,0 +1,68 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- blog entries -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+                {% for lizard in lizard_list %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="image-container">
+                                <a href="{% url 'lizard_detail' lizard.slug  %}">
+                                {% if "placeholder" in lizard.featured_image.url %}
+                                <img class="card-img-top" alt="" src="../static/images/leaf-placeholder-square.jpg">
+                                {% else %}
+                                <img class="card-img-top" alt="" src=" {{ plant.featured_image.url }}">
+                                {% endif %}
+                                <div class="image-flash">
+                                    <p class="author">Author: {{ lizard.author }}</p>
+                                </div>
+                            </div>
+                            <a href="{% url 'lizard_detail' lizard.slug  %}" class="post-link">
+                                <h2 class="card-title">{{ lizard.title }}</h2>
+                            </a>
+                            <p class="card-text card-icon"><i class="fa-solid fa-magnifying-glass-dollar"></i>
+                                <i class="fa-solid fa-dragon"></i>
+                                <i class="fa-solid fa-bowl-rice"></i>
+                                <i class="fa-solid fa-bug"></i>
+                                <i class="fa-solid fa-ruler-horizontal"></i>
+                            </p>
+                            <hr>
+                            <p class="card-text text-muted h6">{{ lizard.created_on}}</p>
+                            <p class="card-icon">
+                                <!-- post comments count -->
+                                {% with lizard.experiences.count as total_experiences %}
+                                <span class="p-1"><i class="fa-regular fa-comment"></i> {{ total_experiences }}</span>
+                                {% endwith %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
+                {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+{%endblock%}

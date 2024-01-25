@@ -12,4 +12,13 @@ class LizardAdmin(SummernoteModelAdmin):
     summernote_fields = ('description', 'diet_list')
 
 
-admin.site.register(Experience)
+@admin.register(Experience)
+class ExperienceAdmin(admin.ModelAdmin):
+
+    list_display = ('pet_name', 'size', 'body', 'post', 'created_on')
+    list_filter = ('user', 'post', 'created_on')
+    search_fields = ('pet_name', 'size', 'body')
+    actions = ['approve_comments']
+
+    def approve_experiences(self, request, queryset):
+        queryset.update(approved=True)

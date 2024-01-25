@@ -2,6 +2,28 @@
 
 {% block content %}
 
+<!-- Why Sign Up Accordian -->
+<div class="accordion col-12">
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" 
+            type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#collapseOne" 
+            aria-expanded="true" 
+            aria-controls="collapseOne"
+            >
+                <strong class="h5 m-0 col-12 text-center">Our Philosophy</strong>
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse hide">
+            <div class="accordion-body text-center">
+                <p>Welcome to "Lizard Is My Pet," 
+                    a dedicated blog tailored for those embarking on the exciting journey of adopting a lizard but seeking a comprehensive understanding of their scaly companions.</p> 
+                <p>Our blog is designed to be the go-to resource, providing valuable insights and firsthand experiences from passionate lizard pet owners.<p/>
+            </div>
+        </div>
+    </div>
 <div class="container-fluid">
     <div class="row">
 
@@ -14,11 +36,12 @@
                         <div class="card-body">
                             <div class="image-container">
                                 <a href="{% url 'lizard_detail' lizard.slug  %}">
-                                {% if "placeholder" in lizard.featured_image.url %}
-                                <img class="card-img-top" alt="" src="../static/images/leaf-placeholder-square.jpg">
-                                {% else %}
-                                <img class="card-img-top" alt="" src=" {{ plant.featured_image.url }}">
-                                {% endif %}
+                                    {% if 'default' in lizard.image.url %}
+                                    <img class="card-img-top" alt="" src="/static/images/lizard_placeholder.jpg">
+                                    {% else %}
+                                    <img class="card-img-top" alt="" src=" {{ lizard.image.url }}">
+                                    {% endif %}
+                                    </a>
                                 <div class="image-flash">
                                     <p class="author">Author: {{ lizard.author }}</p>
                                 </div>
@@ -35,6 +58,7 @@
                             <hr>
                             <p class="card-text text-muted h6">{{ lizard.created_on}}</p>
                             <p class="card-icon">
+                                
                                 <!-- post comments count -->
                                 {% with lizard.experiences.count as total_experiences %}
                                 <span class="p-1"><i class="fa-regular fa-comment"></i> {{ total_experiences }}</span>
@@ -65,4 +89,4 @@
     </nav>
     {% endif %}
 </div>
-{%endblock%}
+{% endblock %}

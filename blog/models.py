@@ -24,6 +24,8 @@ class Lizard(models.Model):
             ),
         ],
     )
+    likes = models.ManyToManyField(
+        User, related_name='lizard_like', blank=True)
     image = CloudinaryField('image', default='default')
     created_on = models.DateField(auto_now_add=True)
     max_size = models.IntegerField(validators=[MinValueValidator(1)])
@@ -49,6 +51,10 @@ class Lizard(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def number_of_likes(self):
+        return self.likes.count()
+
 
 class Experience(models.Model):
     """
@@ -82,14 +88,9 @@ class Experience(models.Model):
         help_text="Share your experience in 800 Characters"
     )
     created_on = models.DateField(auto_now_add=True)
-    likes = models.ManyToManyField(
-        User, related_name='post_like', blank=True)
     
     class Meta:
         ordering = ['created_on']
 
     def __str__(self):
         return f"Experience {self.body} by {self.user}, petname: {self.pet_name}, size: {self.size}cm"
-
-    def number_of_likes(self):
-        return self.likes.count()

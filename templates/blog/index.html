@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<!-- Why Sign Up Accordian -->
+<!-- About This Blog -->
 <div class="accordion col-12">
     <div class="accordion-item">
         <h2 class="accordion-header">
@@ -11,9 +11,8 @@
             data-bs-toggle="collapse" 
             data-bs-target="#collapseOne" 
             aria-expanded="true" 
-            aria-controls="collapseOne"
-            >
-                <strong class="h5 m-0 col-12 text-center">Our Philosophy</strong>
+            aria-controls="collapseOne">
+                <strong class="h5 m-0 col-12 text-center">About This Blog</strong>
             </button>
         </h2>
         <div id="collapseOne" class="accordion-collapse collapse hide">
@@ -58,8 +57,10 @@
                             <hr>
                             <p class="card-text text-muted h6">{{ lizard.created_on}}</p>
                             <p class="card-icon">
+                                <!-- lizard(post) likes count -->
+                                <span class="p-1"><i class="fa-solid fa-heart"></i> {{ lizard.number_of_likes }}</span>
                                 
-                                <!-- post comments count -->
+                                <!-- lizard(post) experiences count -->
                                 {% with lizard.experiences.count as total_experiences %}
                                 <span class="p-1"><i class="fa-regular fa-comment"></i> {{ total_experiences }}</span>
                                 {% endwith %}

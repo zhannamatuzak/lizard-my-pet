@@ -24,13 +24,13 @@ class LizardDetail(SuccessMessageMixin, View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Lizard.objects.filter(status=1)
         lizard = get_object_or_404(queryset, slug=slug)
-        experiences = lizard.experiences.filter(approved=True).order_by('created_on')
+        experiences = lizard.experiences.order_by('created_on')
         liked = False
         if lizard.likes.filter(id=self.request.user.id).exists():
             liked = True
         return render(
             request,
-            "lizard_detail.html",
+            "blog/lizard_detail.html",
             {
                 "lizard": lizard,
                 "experiences": experiences,
@@ -62,7 +62,7 @@ class LizardDetail(SuccessMessageMixin, View):
 
         return render(
             request,
-            "lizard_detail.html",
+            "blog/lizard_detail.html",
             {
                 "lizard": lizard,
                 "experiences": experiences,

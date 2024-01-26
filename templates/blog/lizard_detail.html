@@ -1,0 +1,89 @@
+<!-- Single Lizard (post) display -->
+{% extends "blog/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="container">
+    <div class="row">
+            {% if 'default' in lizard.image.url %}
+            <img src="{% static 'images/lizard_placeholder.jpg' %}" class="col-md-6 rounded card detail-img" alt="Lizard (post) placeholder. There is no image yet.">
+            {% else %}
+            <img src="{{ lizard.image.url }}" class="col-md-6 rounded card detail-img" alt="{{ lizard.title }}">
+            {% endif %}
+        <div class="col-md-6 card">
+            <div class="card-body d-flex justify-content-end flex-column flex-wrap">
+                <div class="h3"> {{ lizard.title }} </div>
+                <h6 class="card-subtitle mb-4 text-body-secondary">Created by {{lizard.author}}</h6>
+                <p> {{ lizard.description }} </p>
+                <p class="mt-auto"> {{lizard.created_on }} </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 card">
+            <div class="card-body">
+                <div class="h5"> The maximum size: </div>
+                <p>{{ lizard.max_size }} cm</p>
+                <hr>
+                <div class="h5"> Lifespan: </div>
+                <p> {{ lizard.lifespan }} years </p>
+                <hr>
+                <div class="h5"> Price range: </div>
+                <hr>
+                <p><strong>Price from:</strong> &dollar;{{ lizard.price_from }} </p>
+                <p><strong>Price to:</strong> &dollar;{{ lizard.price_to }} </p>
+            </div>
+        </div>
+        <div class="col-md-6 card">
+            <div class="card-body">
+                <div class="h5"> Diet: </div>
+                <hr>
+                <h6>Feeding habits:</h6>
+                <p> {{ lizard.get_diet_display }} </p>
+                <h6>Diet consisting of:</h6>
+                <p> {{ lizard.diet_list }} </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Like -->
+<div class="icons-container">
+    {% if user.is_authenticated %}
+        <form action="{% url 'lizard_like' lizard.slug %}" method="POST">
+            {% csrf_token %}
+            {% if liked %}
+            <span>
+                <button class="btn-like" type="submit" name="lizard_id" value="{{lizard.slug}}">
+                    <i class="fa-solid fa-heart fa-xl" style="color: #db00ba83;"></i>
+                </button>
+                {{ lizard.number_of_likes }}
+            </span>
+            {% else %}
+            <span>
+                <button class="btn-like" type="submit" name="recipe_id" value="{{lizard.slug}}">
+                    <i class="far fa-heart fa-xl"></i>
+                </button>
+                {{ lizard.number_of_likes }}
+            </span>
+            {% endif %}
+        </form>
+    {% else %}
+        <span><i class="far fa-heart fa-xl"></i> {{ lizard.number_of_likes }}</span>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block js %}
+<!-- Message Alert Timeout Credit - Code Institute, I think therefore I blog -->
+<script>
+    setTimeout(function() {
+        let messages = document.getElementById("msg");
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+    }, 5000);
+</script>
+{% endblock js%}

@@ -4,8 +4,12 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.core.validators import MinValueValidator, MaxValueValidator, RegexValidator
 
-DIET = ((0, "Not defined"), (1, "Omnivorous"), (2, "Herbivorous"),
-          (3, "Insectivorous"))
+DIET = [
+        ("0", "Not defined"),
+        ("1", "Omnivorous"),
+        ("2", "Herbivorous"),
+        ("3", "Insectivorous"),
+    ]
 STATUS = ((0, "Draft"), (1, "Published"))
 
 class Lizard(models.Model):
@@ -32,7 +36,7 @@ class Lizard(models.Model):
     lifespan = models.IntegerField(validators=[MinValueValidator(1)])
     price_from = models.IntegerField(validators=[MinValueValidator(1)])
     price_to = models.IntegerField(validators=[MinValueValidator(1)])
-    diet = models.IntegerField(choices=DIET, default=0)
+    diet = models.CharField(max_length=50, choices=DIET, default="0")
     diet_list = models.TextField(
         max_length=400,
         help_text="Format: Letters only and max 400 characters",

@@ -20,6 +20,8 @@ To access comprehensive details, including acceptance criteria and tasks for eac
 
 ### Scope
 
+The scope of this project encompasses a set of features designed to create an engaging and interactive blog centered around lizards (posts).
+
 - Admin created lizards (posts) with full CRUD functionality from the backend;
 - Lizards (posts) List and Detailed Lizard webpages;
 - User account creation;
@@ -48,29 +50,6 @@ About all existing features read below ↓↓↓
 ## Features
 
 
-## User Stories 
-
-| Milestone | [Create the full Backend](https://github.com/zhannamatuzak/lizard-my-pet/milestone/1) |
-------------|---------------------------------------------------------------------------------------|
-
-| Epic    | [Full User Managment](https://github.com/zhannamatuzak/lizard-my-pet/issues/3)  |
-----------|--------------------------------------------------------------------------------|
-
-| Title | Number | Definition | Completed? | Label |
-|-------|--------|------------|------------|-------|
-| USER STORY: Log in | [#2](https://github.com/zhannamatuzak/lizard-my-pet/issues/2) | As a **USER** I would like to log in with the registration credentials. | [x] | Must Have |
-| USER STORY: Registration  | [#1](https://github.com/zhannamatuzak/lizard-my-pet/issues/1) | As a **USER**, I would like to have a registration form with no need of email authentication, so I can start writing experiences right away. | [x] | Must Have |
-| USER STORY: Log out | [#4](https://github.com/zhannamatuzak/lizard-my-pet/issues/4) | As a **USER**, I would like to be able to log out. | [x] | Must Have |
-| USER STORY: USER STORY - Authorization | [#4](https://github.com/AlfredA93/recipe-repo-2/issues/4) | As an **ADMIN**, I would like that the user must be authorized in order to write his/her experiences (comments) under the posts. | [x] | Must Have |
-
-| Epic    | [Manage posts]()  |
-----------|-------------------|
-
-| Title | Number | Definition | Completed? | Label |
-|-------|--------|------------|------------|-------|
-| USER STORY: Log in | [#2]() | | [x] | Must Have |
-| USER STORY: Registration  | [#1]() |  | [x] | Must Have |
-| USER STORY: Log out | [#4]() |  | [x] | Must Have |
 
 ---
 
@@ -484,9 +463,29 @@ If everything works successfully during the deployment process, it will look lik
 
 ## Credits
 
-#### Code
+### Code
 
- 1. [MinValueValidator](https://stackoverflow.com/questions/44022056/validators-minvaluevalidator-does-not-work-in-django) -  MinValueValidator was used to help validate the max_size, lifespan, proce_from, price_to fields in the `LizardModel` in Models.py file, to ensure that the values of max_size, lifespan, proce_from, price_to are greater than or equal to 1.
- 2. []() -  
- 3. []() -
- 4. []() - 
+ 1. [MinValueValidator, MaxValueValidator](https://stackoverflow.com/questions/44022056/validators-minvaluevalidator-does-not-work-in-django) -  MinValueValidator was used to help validate the max_size, lifespan, proce_from, price_to fields in the `LizardModel` in Models.py file, to ensure that the values of max_size, lifespan, proce_from, price_to are greater than or equal to 1.
+ 2. [Django in 20 minutes](https://www.youtube.com/watch?v=nGIg40xs9e4) - a brief video about the essential requirements for creating a simple Django project.
+ 3. Two projects that inspired me: [recipe](https://github.com/AlfredA93/recipe-repo-2) and [steam & leaf blog](https://github.com/CaraMcAvinchey/stem-and-leaf-blog/).
+ 5. The Code Institute 'I Think, Therefore I Blog' walkthrough project assisted and guided in the setup and basic structure of this project.
+- Code Institute Student Template: [gitpod full template](https://github.com/Code-Institute-Org/gitpod-full-template).
+
+### Content, Media, and Styling
+
+- [BackWaterReptiles](https://backwaterreptiles.com/) was a great source of inspiration for the creating the content of the blog.
+- The articles and shared experiences on the blog were written myself and any additional helpful articles.
+- The fonts were chosen  [here]().
+- The colors for the website was generated using [Color Space](https://coolors.co/palettes/trending).
+- The lizards images were sourced using [Pexels](https://www.pexels.com) and [Pixabay](https://pixabay.com/).
+- The icons for the footer, about page and location headings were taken from [Font Awesome](https://fontawesome.com/).
+- The icon for the favicon was taken from [canva](https://www.canva.com/).
+- The favicon image was converted using [Favicon.io](https://favicon.io/).
+
+## Acknowledgements
+
+- Thank you to my mentor and my cohort members for continuous helpful feedback and support throughout the project.
+- [Paulo](https://github.com/Parbelaez) for tips and guidance in creating user stories.
+- I am rateful to my playback theater community for providing a haven of joy and connection amid challenging times.
+
+[Back to the beginning](#lizard-is-my-pet)

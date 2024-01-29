@@ -2,7 +2,7 @@
 
 ## Introduction & Project's Goal
 
-This Django project functions as a specialized blog designed for individuals contemplating the idea of adopting a lizard as a pet. It caters not only to those in search of essential information for decision-making but also to experienced lizard owners eager to share their firsthand experiences. Owners are invited to share insights into various aspects of daily life with their lizard, including preferred food choices, potential size and growth, lifespan, and even unique names for these captivating pets. The administrator provides visitors with posts about various lizard species, offering a comprehensive overview to assist them in making informed decisions. Simultaneously, visitors who have a lizard as a pet can actively contribute by sharing their own experiences in the experience (comments) section below each post. Reading about the experiences of others serves as a valuable resource for decision-making too. Only registered users have access to submit their experiences across all posts and to like the posts.
+This Django project functions as a specialized blog designed for individuals contemplating the idea of adopting a 🦎 lizard as a pet. It caters not only to those in search of essential information for decision-making but also to experienced lizard owners eager to share their firsthand experiences. Owners are invited to share insights into various aspects of daily life with their lizard, including preferred food choices, potential size and growth, lifespan, and even unique names for these captivating pets. The administrator provides visitors with posts about various lizard species, offering a comprehensive overview to assist them in making informed decisions. Simultaneously, visitors who have a lizard as a pet can actively contribute by sharing their own experiences in the experience (comments) section below each post. Reading about the experiences of others serves as a valuable resource for decision-making too. Only registered users have access to submit their experiences across all posts and to like the posts.
 
 ![responsive mockup]()
 
@@ -59,7 +59,7 @@ The Database consists of three models:
 
 * **USER:** where all data of each registered user is stored.
 
-* **LLIZARD:** where all data of each post is stored.
+* **LIZARD:** where all data of each post is stored.
 
 * **EXPERIENCE:** where all data of each written experience (comment) is stored.
 
@@ -75,7 +75,7 @@ In this project, Django's built-in application, contrib.auth, was utilized to ma
 
 **Custom Models:**
 
-**LIZARD MODEL**
+**🦎LIZARD MODEL**
 
 The Lizard model was customised according to the data needed for the "Lizard is my pet" blog concept.
 
@@ -95,8 +95,8 @@ The Lizard model was customised according to the data needed for the "Lizard is 
 |              | diet_list      | TextField        | validators=[RegexValidator(regex=r'^[A-Za-z0-9\s\.,!?]*$')] |
 |              | status         | IntegerField     | choices=STATUS, default=0 |
 
-**<span style="color:red;">!</span>** I had to change the "diet" variable field from Integer to CharField. 
-To read more about the **ISSUE*,* see [user story 12](https://github.com/zhannamatuzak/lizard-my-pet/issues/12).
+❗ I had to change the "diet" variable field from Integer to CharField. 
+To read more details about the **ISSUE*,* see [user issue 12](https://github.com/zhannamatuzak/lizard-my-pet/issues/12).
 
 Variables for **choice:**
 
@@ -156,6 +156,11 @@ class Meta:
 - [X] D - Site users are able to delete their shared experiences (comments).
 
 ---
+
+## Testing
+
+Please refer to the [TESTING.md](TESTING.md) file for all testing performed.
+
 
 ## Technologies Used
 
@@ -431,7 +436,7 @@ If everything works successfully during the deployment process, it will look lik
 - Set debug to False locally + delete DISABLE_COLLECTSTATIC from config vars in Heroku dashboard.
 - Commit and push the changes to GitHub.
 
-##### Fixed Bugs
+##### ❗ Fixed Bugs
 
 - Problem 1:  When renaming the my Django project, I have manually changed the project folder's name only.
 
@@ -468,8 +473,6 @@ If everything works successfully during the deployment process, it will look lik
 
 ---
 
-
-
 ## Credits
 
 ### Code
@@ -485,7 +488,7 @@ If everything works successfully during the deployment process, it will look lik
 - [BackWaterReptiles](https://backwaterreptiles.com/) was a great source of inspiration for the creating the content of the blog.
 - The articles and shared experiences on the blog were written myself and any additional helpful articles.
 - The fonts were chosen  [here]().
-- The colors for the website was generated using [Color Space](https://coolors.co/palettes/trending).
+- The colors for the website was generated using [coolors.co](https://coolors.co/palettes/trending).
 - The lizards images were sourced using [Pexels](https://www.pexels.com) and [Pixabay](https://pixabay.com/).
 - The icons for the footer, about page and location headings were taken from [Font Awesome](https://fontawesome.com/).
 - The icon for the favicon was taken from [canva](https://www.canva.com/).

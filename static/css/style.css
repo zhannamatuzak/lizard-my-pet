@@ -1,3 +1,21 @@
 .dark-bg {
     background-color: #D7AFF0;
 }
+
+.main-bg {
+    background-color: #DBFFFF;
+}
+
+.accordion-button {
+    background-color: #b6aff0;
+}
+
+.accordion-button:not(.collapsed) {
+    color:black;
+    background-color: #b6aff0;
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}

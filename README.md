@@ -91,17 +91,22 @@ The Lizard model was customised according to the data needed for the "Lizard is 
 |              | lifespan       | IntegerField     | validators=[MinValueValidator(1)] |
 |              | price_from     | IntegerField     | validators=[MinValueValidator(1)] |
 |              | price_to       | User Model       | validators=[MinValueValidator(1)] |
-|              | diet           | IntegerField     | choices=DIET, default=0 |
+|              | diet           | CharField        | max_length=50, choices=DIET, default="0" |
 |              | diet_list      | TextField        | validators=[RegexValidator(regex=r'^[A-Za-z0-9\s\.,!?]*$')] |
 |              | status         | IntegerField     | choices=STATUS, default=0 |
 
+**<span style="color:red;">!</span>** I had to change the "diet" variable field from Integer to CharField. 
+To read more about the **ISSUE*,* see [user story 12](https://github.com/zhannamatuzak/lizard-my-pet/issues/12).
 
 Variables for **choice:**
 
 ```
-DIET = ((0, "Not defined"), (1, "Omnivorous"), (2, "Herbivorous"),
-          (3, "Insectivorous"))
-STATUS = ((0, "Draft"), (1, "Published"))
+DIET = [
+        ("0", "Not defined"),
+        ("1", "Omnivorous"),
+        ("2", "Herbivorous"),
+        ("3", "Insectivorous"),
+    ]
 ```
 
 **Methods:**
@@ -112,8 +117,15 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
     def __str__(self):
         return self.title
+
+    def number_of_likes(self):
+        return self.likes.count()
 ```
 
+- [X] C - Site users can create/register their own profile to interact with the lizards posts.
+- [X] R - Site users can open and read the lizard blog posts for details and read shared experiences (comments) from other users.
+- [X] U - Site users can like a lizard (post), updating the details and analytics for a lizard detail post.
+- [X] D - Site users can eliminate their like if desired on a lizard detail post.
 <br>
 
 **EXPERIENCE MODEL** 
@@ -136,14 +148,11 @@ class Meta:
 
     def __str__(self):
         return f"Experience {self.body} by {self.user}, petname: {self.pet_name}, size: {self.size}cm"
-
-    def number_of_likes(self):
-        return self.likes.count()
 ```
 
 - [X] C - Site users can create their own experiences (comments) using a validated form on each blog post.
 - [X] R - Site users can read shared experience (comments) from other users.
-- [X] U - Site users are able to update/edit their shared experiecnes (comments) using a form, and can like a shared experience (comments), updating the details and analytics for each shared experience.
+- [X] U - Site users are able to update/edit their shared experiecnes (comments) using a form.
 - [X] D - Site users are able to delete their shared experiences (comments).
 
 ---
@@ -486,6 +495,6 @@ If everything works successfully during the deployment process, it will look lik
 
 - Thank you to my mentor and my cohort members for continuous helpful feedback and support throughout the project.
 - [Paulo](https://github.com/Parbelaez) for tips and guidance in creating user stories.
-- I am rateful to my playback theater community for providing a haven of joy and connection amid challenging times.
+- I am grateful to my playback theater community for providing a haven of joy and connection amid challenging times.
 
 [Back to the beginning](#lizard-is-my-pet)

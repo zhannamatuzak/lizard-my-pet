@@ -402,6 +402,42 @@ If everything works successfully during the deployment process, it will look lik
 
 ---
 
+## Technologies Used
+
+### Work Environments and Hosting
+
+- [Lucid](https://lucid.app/) (ERD diagrams)
+- [GitHub](https://github.com/) (Version control)
+- [GitPod](https://gitpod.io/) (IDE)
+- [Heroku](https://heroku.com/) (Site hosting)
+- [Cloudinary](https://cloudinary.com/) (Serving static media files)
+
+### Python Libraries
+
+- [Gunicorn](https://docs.djangoproject.com/en/4.1/howto/deployment/wsgi/gunicorn/) - Python HTTP server for WSGI applications.
+- [pyscopg2](https://pypi.org/project/psycopg2/) - PostgreSQL Database adapter.
+- [pytz](https://pypi.org/project/pytz/) - the library that provides support for working with time zones: allows to work with time zone information, including conversions between different time zones and handling daylight saving time (DST) changes.
+- [sqlparse](https://pypi.org/project/sqlparse/) - is a Python library for parsing and formatting SQL queries. It provides tools to analyze SQL statements and transform them into well-structured and readable output.
+- [requests-oauthlib](https://pypi.org/project/requests-oauthlib/) - is a Python library that provides OAuth support for Python requests library. It simplifies the process of making OAuth-authenticated HTTP requests.
+- [python3-openid](https://pypi.org/project/python3-openid/) - is a Python library that provides OpenID support. OpenID is an authentication protocol that allows users to log in to different websites using a single set of credentials.
+- [oauthlib](https://pypi.org/project/oauthlib/) - is a Python library that provides a generic implementation of the OAuth (Open Authorization) 1.0 and 2.0 specification for various web frameworks. OAuth is a protocol for securing delegated access to resources on behalf of a resource owner.
+- [whitenoise](https://whitenoise.readthedocs.io/en/latest/) - is a Python library that simplifies the process of serving static files in a Django web application
+
+### Django Libraries
+
+- [django-allauth](https://django-allauth.readthedocs.io/en/latest/) - User authentication.
+- [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - Control rendering behaviour of Django forms.
+- [dj3-cloudinary-storage](https://github.com/tiagocordeiro/dj3-cloudinary-storage) - Django3 package that provides Cloudinary storages for both media and static files as well as management commands for removing unnecessary files.
+- [dj-database-url==0.5.0]() - is a Python library commonly used with Django web frameworks to simplify the process of configuring database settings using environment variables.
+- [asgiref](https://pypi.org/project/asgiref/) - is a Python library that provides a set of utilities for building ASGI (Asynchronous Server Gateway Interface) applications and servers.
+- [django-summernote](https://pypi.org/project/django-summernote/) - This Django package integrates the Summernote editor into the Django admin for enhanced content creation and editing. Summernote is a popular JavaScript WYSIWYG editor.
+
+### Database
+
+- [ElephantSQL](https://www.elephantsql.com/) - PostgreSQL database hosting.
+
+---
+
 ## Credits
 
 #### Code

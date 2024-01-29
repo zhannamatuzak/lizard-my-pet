@@ -18,13 +18,29 @@ Ensuring the successful implementation of user stories is fundamental to this pr
 
 To access comprehensive details, including acceptance criteria and tasks for each user story, please refer to the linked project above. Additionally, each story is categorized with a labeled indicator, signifying its importance to the overall functionality and acceptability of the site.
 
+### Scope
+
+- Admin created lizards (posts) with full CRUD functionality from the backend;
+- Lizards (posts) List and Detailed Lizard webpages;
+- User account creation;
+- User shared experiences (comments) with full front-end CRUD functionality;
+- User likes with full front-end CRUD functionality;
+- Identify and show seit user mumber of shared experiences (comments) per Lizard (post).
+
 ### Wireframes
 
 The initial wireframes in [canva](https://www.canva.com/) are an overly simplified version of the finished product and merely served the purpose of listing most of the site's essential features.
 
+#### Home Page
+
 ![home page wireframe](documentation/home_page_wireframe.png)
+
+#### Detailed view of a Post
+
 ![detailed view of the post](documentation/detailed_view_wireframe.png)
-Not all features and functions are covered by these first drafts. 
+
+Not all features and functions are covered by these wto drafts.
+
 About all existing features read below ↓↓↓
 
 ---

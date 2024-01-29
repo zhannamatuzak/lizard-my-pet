@@ -1,10 +1,36 @@
 # Lizard Is My Pet
 
-This Django project functions as a specialized blog designed for individuals contemplating the idea of adopting a lizard as a pet. It caters not only to those in search of essential information for decision-making but also to experienced lizard owners eager to share their firsthand experiences. Owners are invited to share insights into various aspects of daily life with their lizard, including preferred food choices, potential size and growth, lifespan, and even unique names for these captivating pets. The administrator provides visitors with posts about various lizard species, offering a comprehensive overview to assist them in making informed decisions. Simultaneously, visitors who have a lizard as a pet can actively contribute by sharing their own experiences in the experience (comments) section below each post. Reading about the experiences of others serves as a valuable resource for decision-making too. Only registered users have access to submit their experiences across all posts.
+## Introduction & Project's Goal
+
+This Django project functions as a specialized blog designed for individuals contemplating the idea of adopting a lizard as a pet. It caters not only to those in search of essential information for decision-making but also to experienced lizard owners eager to share their firsthand experiences. Owners are invited to share insights into various aspects of daily life with their lizard, including preferred food choices, potential size and growth, lifespan, and even unique names for these captivating pets. The administrator provides visitors with posts about various lizard species, offering a comprehensive overview to assist them in making informed decisions. Simultaneously, visitors who have a lizard as a pet can actively contribute by sharing their own experiences in the experience (comments) section below each post. Reading about the experiences of others serves as a valuable resource for decision-making too. Only registered users have access to submit their experiences across all posts and to like the posts.
 
 ![responsive mockup]()
 
 [Link to live site](https://lizard-my-pet-59221c9c04e1.herokuapp.com/) 
+
+---
+
+### Agile Strategy
+
+This project follows the agile approach, encompassing the entire development lifecycle from initial planning to final implementation. To illustrate the process, I established a [GitHub project](https://github.com/users/zhannamatuzak/projects/1) and employed the Kanban board method provided. This method facilitated the breakdown of project elements into user stories and manageable tasks.
+
+Ensuring the successful implementation of user stories is fundamental to this project. It involves testing to confirm that the delivered features align with specified criteria.
+
+To access comprehensive details, including acceptance criteria and tasks for each user story, please refer to the linked project above. Additionally, each story is categorized with a labeled indicator, signifying its importance to the overall functionality and acceptability of the site.
+
+### Wireframes
+
+The initial wireframes in [canva](https://www.canva.com/) are an overly simplified version of the finished product and merely served the purpose of listing most of the site's essential features.
+
+![home page wireframe](documentation/home_page_wireframe.png)
+![detailed view of the post](documentation/detailed_view_wireframe.png)
+Not all features and functions are covered by these first drafts. 
+About all existing features read below ↓↓↓
+
+---
+
+## Features
+
 
 ## User Stories 
 
@@ -124,6 +150,42 @@ class Meta:
 - [X] R - Site users can read shared experience (comments) from other users.
 - [X] U - Site users are able to update/edit their shared experiecnes (comments) using a form, and can like a shared experience (comments), updating the details and analytics for each shared experience.
 - [X] D - Site users are able to delete their shared experiences (comments).
+
+---
+
+## Technologies Used
+
+### Work Environments and Hosting
+
+- [Lucid](https://lucid.app/) (ERD diagrams)
+- [GitHub](https://github.com/) (Version control)
+- [GitPod](https://gitpod.io/) (IDE)
+- [Heroku](https://heroku.com/) (Site hosting)
+- [Cloudinary](https://cloudinary.com/) (Serving static media files)
+
+### Python Libraries
+
+- [Gunicorn](https://docs.djangoproject.com/en/4.1/howto/deployment/wsgi/gunicorn/) - Python HTTP server for WSGI applications.
+- [pyscopg2](https://pypi.org/project/psycopg2/) - PostgreSQL Database adapter.
+- [pytz](https://pypi.org/project/pytz/) - the library that provides support for working with time zones: allows to work with time zone information, including conversions between different time zones and handling daylight saving time (DST) changes.
+- [sqlparse](https://pypi.org/project/sqlparse/) - is a Python library for parsing and formatting SQL queries. It provides tools to analyze SQL statements and transform them into well-structured and readable output.
+- [requests-oauthlib](https://pypi.org/project/requests-oauthlib/) - is a Python library that provides OAuth support for Python requests library. It simplifies the process of making OAuth-authenticated HTTP requests.
+- [python3-openid](https://pypi.org/project/python3-openid/) - is a Python library that provides OpenID support. OpenID is an authentication protocol that allows users to log in to different websites using a single set of credentials.
+- [oauthlib](https://pypi.org/project/oauthlib/) - is a Python library that provides a generic implementation of the OAuth (Open Authorization) 1.0 and 2.0 specification for various web frameworks. OAuth is a protocol for securing delegated access to resources on behalf of a resource owner.
+- [whitenoise](https://whitenoise.readthedocs.io/en/latest/) - is a Python library that simplifies the process of serving static files in a Django web application
+
+### Django Libraries
+
+- [django-allauth](https://django-allauth.readthedocs.io/en/latest/) - User authentication.
+- [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - Control rendering behaviour of Django forms.
+- [dj3-cloudinary-storage](https://github.com/tiagocordeiro/dj3-cloudinary-storage) - Django3 package that provides Cloudinary storages for both media and static files as well as management commands for removing unnecessary files.
+- [dj-database-url==0.5.0]() - is a Python library commonly used with Django web frameworks to simplify the process of configuring database settings using environment variables.
+- [asgiref](https://pypi.org/project/asgiref/) - is a Python library that provides a set of utilities for building ASGI (Asynchronous Server Gateway Interface) applications and servers.
+- [django-summernote](https://pypi.org/project/django-summernote/) - This Django package integrates the Summernote editor into the Django admin for enhanced content creation and editing. Summernote is a popular JavaScript WYSIWYG editor.
+
+### Database
+
+- [ElephantSQL](https://www.elephantsql.com/) - PostgreSQL database hosting.
 
 ---
 
@@ -402,41 +464,7 @@ If everything works successfully during the deployment process, it will look lik
 
 ---
 
-## Technologies Used
 
-### Work Environments and Hosting
-
-- [Lucid](https://lucid.app/) (ERD diagrams)
-- [GitHub](https://github.com/) (Version control)
-- [GitPod](https://gitpod.io/) (IDE)
-- [Heroku](https://heroku.com/) (Site hosting)
-- [Cloudinary](https://cloudinary.com/) (Serving static media files)
-
-### Python Libraries
-
-- [Gunicorn](https://docs.djangoproject.com/en/4.1/howto/deployment/wsgi/gunicorn/) - Python HTTP server for WSGI applications.
-- [pyscopg2](https://pypi.org/project/psycopg2/) - PostgreSQL Database adapter.
-- [pytz](https://pypi.org/project/pytz/) - the library that provides support for working with time zones: allows to work with time zone information, including conversions between different time zones and handling daylight saving time (DST) changes.
-- [sqlparse](https://pypi.org/project/sqlparse/) - is a Python library for parsing and formatting SQL queries. It provides tools to analyze SQL statements and transform them into well-structured and readable output.
-- [requests-oauthlib](https://pypi.org/project/requests-oauthlib/) - is a Python library that provides OAuth support for Python requests library. It simplifies the process of making OAuth-authenticated HTTP requests.
-- [python3-openid](https://pypi.org/project/python3-openid/) - is a Python library that provides OpenID support. OpenID is an authentication protocol that allows users to log in to different websites using a single set of credentials.
-- [oauthlib](https://pypi.org/project/oauthlib/) - is a Python library that provides a generic implementation of the OAuth (Open Authorization) 1.0 and 2.0 specification for various web frameworks. OAuth is a protocol for securing delegated access to resources on behalf of a resource owner.
-- [whitenoise](https://whitenoise.readthedocs.io/en/latest/) - is a Python library that simplifies the process of serving static files in a Django web application
-
-### Django Libraries
-
-- [django-allauth](https://django-allauth.readthedocs.io/en/latest/) - User authentication.
-- [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - Control rendering behaviour of Django forms.
-- [dj3-cloudinary-storage](https://github.com/tiagocordeiro/dj3-cloudinary-storage) - Django3 package that provides Cloudinary storages for both media and static files as well as management commands for removing unnecessary files.
-- [dj-database-url==0.5.0]() - is a Python library commonly used with Django web frameworks to simplify the process of configuring database settings using environment variables.
-- [asgiref](https://pypi.org/project/asgiref/) - is a Python library that provides a set of utilities for building ASGI (Asynchronous Server Gateway Interface) applications and servers.
-- [django-summernote](https://pypi.org/project/django-summernote/) - This Django package integrates the Summernote editor into the Django admin for enhanced content creation and editing. Summernote is a popular JavaScript WYSIWYG editor.
-
-### Database
-
-- [ElephantSQL](https://www.elephantsql.com/) - PostgreSQL database hosting.
-
----
 
 ## Credits
 

@@ -60,7 +60,7 @@
                             <p class="card-text text-muted h6">{{ lizard.created_on}}</p>
                             <p class="card-icon">
                                 <!-- lizard(post) likes count -->
-                                <span class="p-1"><i class="fa-solid fa-heart"></i> {{ lizard.number_of_likes }}</span>
+                                <span class="p-1"> <i class="fa-regular fa-thumbs-up"></i> {{ lizard.number_of_likes }}</span>
                                 
                                 <!-- lizard(post) experiences count -->
                                 {% with lizard.experiences.count as total_experiences %}

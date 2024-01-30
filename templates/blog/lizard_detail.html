@@ -58,21 +58,21 @@
             {% if liked %}
             <span>
                 <button class="btn-like" type="submit" name="lizard_id" value="{{lizard.slug}}">
-                    <i class="fa-solid fa-heart fa-xl" style="color: #db00ba83;"></i>
+                    <i class="fa-regular fa-thumbs-up" style="color: #db00ba83;"></i> 
                 </button>
                 {{ lizard.number_of_likes }}
             </span>
             {% else %}
             <span>
                 <button class="btn-like" type="submit" name="recipe_id" value="{{lizard.slug}}">
-                    <i class="far fa-heart fa-xl"></i>
+                    <i class="fa-regular fa-thumbs-up" style="color: #db00ba83;"></i>
                 </button>
                 {{ lizard.number_of_likes }}
             </span>
             {% endif %}
         </form>
     {% else %}
-        <span><i class="far fa-heart fa-xl"></i> {{ lizard.number_of_likes }}</span>
+        <span><i class="fa-regular fa-thumbs-up" style="color: #db00ba83;"></i> {{ lizard.number_of_likes }}</span>
     {% endif %}
 </div>
 {% endblock %}

@@ -1,5 +1,8 @@
 /* background colors */
 
+
+
+
 .dark-bg {
     background-color: #D7AFF0;
 }
@@ -22,15 +25,40 @@
     box-shadow: none;
 }
 
+.logo {
+    margin-left: 1.2rem;
+    height: 90px;
+    width: 90px;
+}
+
 /* blog post-list card */
+
 
 .card {
     border: none;
-    background-color: transparent;
+    background-color: white;
+    border-radius: 1rem;
+    margin: 1.2rem;
+}
+
+.card-body {
+    padding: 0 0 1rem 0;
+    
+}
+
+.h6 {
+    margin: .65rem 1rem;
+    text-align: center;
 }
 
 .image-container {
     position: relative;
+}
+
+.card-img-top {
+    position: relative;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
 }
 
 .image-flash {
@@ -39,6 +67,7 @@
     min-width: 30%;
     left: -2px;
     background-color: #b6aff0;
+    border-radius: .2rem;
 }
 
 .author {
@@ -48,19 +77,60 @@
     font-weight: bold;
 }
 
+.card-icon {
+    margin: .65rem 1rem;
+    text-align: center;
+}
+
 .card-icon i {
-    color: #f0d6af;
+    color: #f0afe8;
 }
 
-.post-link {
-    font-size: 1.2rem;
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    margin-left: .65rem;
+    margin-top: .65rem;
+    color: #298560;
+    text-align: center;
+}
+
+.btn-container {
+    text-align: center;
+    margin: 1.4rem;
+}
+
+.button-read {
+    background: linear-gradient(to bottom right, #e4b56f, #f0d6af);
+    border: 0;
+    border-radius: 20px;
+    color: black;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 2.5;
+    outline: transparent;
+    padding: .1rem 1.5rem;
+    text-align: center;
     text-decoration: none;
-    color: #aff0d6;
-}
+    transition: box-shadow .2s ease-in-out;
+    user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    justify-content: center;
+  }
+  
+  .button-read:not([disabled]):focus {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  }
+  
+  .button-read:not([disabled]):hover {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  }
 
-.post-link:hover,
-.page-link {
-    color: #8CC0AB;
+
+.detail-img {
+    padding: 0;
 }
 
 /* footer */

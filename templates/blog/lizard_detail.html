@@ -10,21 +10,21 @@
 <div class="container">
     <div class="row">
             {% if 'default' in lizard.image.url %}
-            <img src="{% static 'images/lizard_placeholder.jpg' %}" class="col-md-6 rounded card detail-img" alt="Lizard (post) placeholder. There is no image yet.">
+            <img src="{% static 'images/lizard_placeholder.jpg' %}" class="col-md-5 rounded card detail-img" alt="Lizard (post) placeholder. There is no image yet.">
             {% else %}
-            <img src="{{ lizard.image.url }}" class="col-md-6 rounded card detail-img" alt="{{ lizard.title }}">
+            <img src="{{ lizard.image.url }}" class="col-md-5 rounded card detail-img" alt="{{ lizard.title }}">
             {% endif %}
         <div class="col-md-6 card">
             <div class="card-body d-flex justify-content-end flex-column flex-wrap">
                 <div class="h3"> {{ lizard.title }} </div>
-                <h6 class="card-subtitle mb-4 text-body-secondary">Created by {{lizard.author}}</h6>
+                <h6 class="card-subtitle mb-6 text-body-secondary">Created by {{lizard.author}}</h6>
                 <p> {{ lizard.description }} </p>
                 <p class="mt-auto"> {{lizard.created_on }} </p>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 card">
+        <div class="col-md-5 card">
             <div class="card-body">
                 <div class="h5"> The maximum size: </div>
                 <p>{{ lizard.max_size }} cm</p>

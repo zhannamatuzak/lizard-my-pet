@@ -47,16 +47,18 @@
                                     <p class="author">Author: {{ lizard.author }}</p>
                                 </div>
                             </div>
-                            <a href="{% url 'lizard_detail' lizard.slug  %}" class="post-link">
-                                <h2 class="card-title">{{ lizard.title }}</h2>
-                            </a>
+                            <h2 class="card-title">{{ lizard.title }}</h2>
                             <p class="card-text card-icon"><i class="fa-solid fa-magnifying-glass-dollar"></i>
                                 <i class="fa-solid fa-dragon"></i>
                                 <i class="fa-solid fa-bowl-rice"></i>
                                 <i class="fa-solid fa-bug"></i>
                                 <i class="fa-solid fa-ruler-horizontal"></i>
                             </p>
-                            <hr>
+                            <div class="btn-container">
+                                <a href="{% url 'lizard_detail' lizard.slug  %}" class="post-link">
+                                <button class="button-read" role="button">Read more</button>
+                                </a>
+                            </div>
                             <p class="card-text text-muted h6">{{ lizard.created_on}}</p>
                             <p class="card-icon">
                                 <!-- lizard(post) likes count -->

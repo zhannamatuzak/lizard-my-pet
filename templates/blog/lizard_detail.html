@@ -7,6 +7,7 @@
 
 {% load crispy_forms_tags %}
 
+<!-- Lizard blog post content -->
 <div class="container">
     <div class="row">
             {% if 'default' in lizard.image.url %}
@@ -50,30 +51,104 @@
         </div>
     </div>
 </div>
-<!-- Like -->
+<!-- Likes -->
 <div class="icons-container">
     {% if user.is_authenticated %}
+    <div>
+        <span class="totals">Your opinion:</span>
         <form action="{% url 'lizard_like' lizard.slug %}" method="POST">
             {% csrf_token %}
             {% if liked %}
             <span>
                 <button class="btn-like" type="submit" name="lizard_id" value="{{lizard.slug}}">
-                    <i class="fa-regular fa-thumbs-up" style="color: #db00ba83;"></i> 
+                    <i class="fa-regular fa-thumbs-up" ></i> 
                 </button>
                 {{ lizard.number_of_likes }}
             </span>
             {% else %}
             <span>
-                <button class="btn-like" type="submit" name="recipe_id" value="{{lizard.slug}}">
-                    <i class="fa-regular fa-thumbs-up" style="color: #db00ba83;"></i>
+                <button class="btn-like" type="submit" name="lizard_id" value="{{lizard.slug}}">
+                    <i class="fa-regular fa-thumbs-up"></i>
                 </button>
                 {{ lizard.number_of_likes }}
             </span>
             {% endif %}
         </form>
-    {% else %}
-        <span><i class="fa-regular fa-thumbs-up" style="color: #db00ba83;"></i> {{ lizard.number_of_likes }}</span>
+    </div>
     {% endif %}
+    <div>
+        <span class="totals">TOTAL LIKES:</span>
+        <span class="btn-like no-border"><i class="fa-solid fa-heart"></i></span>
+        <span>{{ plant.number_of_likes }} </span>
+    </div>
+    <!-- post comments count -->
+    <div>
+        <span class="totals">TOTAL COMMENTS:</span>
+        {% with experiences.count as total_experiences %}
+        <span class="btn-like m-1"><i class="fa-solid fa-comment m-1"></i> {{ total_experiences }}</span>
+        {% endwith %}
+    </div>
+    <div>
+        <a class="btn btn-signup mt-4" href="{% url 'home' %}">Go Back</a>
+    </div>
+    <div class="row">
+        <div class="col">
+            <hr>
+        </div>
+    </div>
+    <!-- Shared experiences (comments) section -->
+    <div class="container">
+        <div class="row">
+            <div class="card-container col-lg-8 mb-4 mt-3">
+                <h3>Shared experiences:</h3>
+                <hr>
+                <div>
+                {% if experiences %}
+                    {% for experience in experiences %}
+                        <div class="comments">
+                            <div>
+                                <p class="post-icon mt-1"><i class="fa-solid fa-user pr-1"></i> {{ user.username }}
+                                    <i class="fa-solid fa-dragon"></i> {{ experience.pet_name}} 
+                                    <i class="fa-solid fa-ruler-horizontal"></i> {{ experience.size }} cm
+                                    <i class="fa-solid fa-calendar-days"></i> <span>{{ experience.created_on }}</span>
+                                    
+                                </p>
+                            </div>
+                            <div>
+                                {{ experience.body | linebreaksbr }}
+                            </div>
+                            <div>
+                           
+                            </div>
+                        </div>
+                    <hr>
+                    {% endfor %}
+                {% else %}
+                    <p>No comments yet, be the first to share your experience!</p>
+
+                    {% if not user.is_authenticated %}
+                        <p>
+                            To share your experience, <a class="link" href="{% url 'account_login' %}">log in</a> to our site!<br> 
+                            If you do not have an account, please <a class="link" href="{% url 'account_signup' %}">register</a> here.
+                        </p>
+                    {% endif %}
+
+                {% endif %}
+                </div>
+            </div>
+            <div class="card-container col-lg-4 mb-4 mt-3 ">
+            {% if user.is_authenticated %}
+                <h3>Share your experience:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ experience_form | crispy }}
+                    <button type="submit" class="btn btn-signup btn-md mt-2">Submit</button>
+                </form>
+            </div>
+            {% endif %}
+        </div>
+    </div>
 </div>
 {% endblock %}
 

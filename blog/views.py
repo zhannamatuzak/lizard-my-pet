@@ -43,16 +43,15 @@ class LizardDetail(SuccessMessageMixin, View):
     def post(self, request, slug, *args, **kwargs):
         queryset = Lizard.objects.filter(status=1)
         lizard = get_object_or_404(queryset, slug=slug)
-        experiences = lizard.experiences.filter(approved=True).order_by("-created_on")
+        experiences = lizard.experiences.order_by("-created_on")
         liked = False
-        if plant.likes.filter(id=self.request.user.id).exists():
+        if lizard.likes.filter(id=self.request.user.id).exists():
             liked = True
 
         experience_form = ExperienceForm(data=request.POST)
 
         if experience_form.is_valid():
-            experience_form.instance.pet_name = request.user.pet_name
-            experience_form.instance.size = request.user.size
+            experience_form.instance.user = request.user
             experience = experience_form.save(commit=False)
             experience.post = lizard
             experience.save()
@@ -96,7 +95,7 @@ class ExperienceDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         experience = self.get_object()
-        return self.request.user.username == experience.name
+        return self.request.user.username == experience.user
 
     def delete(self, request, *args, **kwargs):
         return super(ExperienceDelete, self).delete(request, *args, **kwargs)
@@ -118,7 +117,7 @@ class ExperienceEdit(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def test_func(self):
         experience = self.get_object()
-        return self.request.user.username == experience.name
+        return self.request.user.username == experience.user
 
     def form_valid(self, form):
         """
@@ -132,7 +131,7 @@ class ExperienceEdit(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         """
         After success, the user will be returned to the post/lizard detail page.
         """
-        PlantDetail.comment_edited = True
+        LizardDetail.experience_edited = True
         return reverse("lizard_detail", kwargs={"slug": self.object.post.slug})
 
 

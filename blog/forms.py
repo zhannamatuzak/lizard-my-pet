@@ -9,9 +9,9 @@ class ExperienceForm(forms.ModelForm):
         model = Experience
         fields = ('pet_name', 'size','body',)
         labels = {
-            'pet_name': "Write your pet's name",
-            'size': 'What is approximate size of your pet?',
-            'body': 'Share your experience about your pet here.',
+            'pet_name': "Write your pet's name:",
+            'size': 'Approximate size of your pet:',
+            'body': 'Tell us about your pet here:',
         }
 
 class EditForm(forms.ModelForm):

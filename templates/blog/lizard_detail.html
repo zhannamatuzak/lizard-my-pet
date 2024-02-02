@@ -61,7 +61,7 @@
             {% if liked %}
             <span>
                 <button class="btn-like" type="submit" name="lizard_id" value="{{lizard.slug}}">
-                    <i class="fa-regular fa-thumbs-up" ></i> 
+                    <i class="fa-regular fa-thumbs-up"></i> 
                 </button>
                 {{ lizard.number_of_likes }}
             </span>
@@ -78,8 +78,8 @@
     {% endif %}
     <div>
         <span class="totals">TOTAL LIKES:</span>
-        <span class="btn-like no-border"><i class="fa-solid fa-heart"></i></span>
-        <span>{{ plant.number_of_likes }} </span>
+        <span class="btn-like no-border"><i class="fa-regular fa-thumbs-up"></i></span>
+        <span>{{ lizard.number_of_likes }} </span>
     </div>
     <!-- post comments count -->
     <div>
@@ -139,11 +139,12 @@
             <div class="card-container col-lg-4 mb-4 mt-3 ">
             {% if user.is_authenticated %}
                 <h3>Share your experience:</h3>
-                <p>Posting as: {{ user.username }}</p>
-                <form method="post">
+                <p>Posting as: {{ user.username }} </p>
+                <form class ="body-experience" method="post">
                     {% csrf_token %}
-                    {{ experience_form | crispy }}
-                    <button type="submit" class="btn btn-signup btn-md mt-2">Submit</button>
+                    {{ experience_form }}
+
+                    <button type="submit" class="btn-comment btn-signup btn-md mt-2">Submit</button>
                 </form>
             </div>
             {% endif %}
@@ -152,13 +153,3 @@
 </div>
 {% endblock %}
 
-{% block js %}
-<!-- Message Alert Timeout Credit - Code Institute, I think therefore I blog -->
-<script>
-    setTimeout(function() {
-        let messages = document.getElementById("msg");
-        let alert = new bootstrap.Alert(messages);
-        alert.close();
-    }, 5000);
-</script>
-{% endblock js%}

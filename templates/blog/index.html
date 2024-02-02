@@ -95,3 +95,14 @@
     {% endif %}
 </div>
 {% endblock %}
+
+{% block js %}
+<!-- Message Alert Timeout Credit - Code Institute, I think therefore I blog -->
+<script>
+    setTimeout(function() {
+        let messages = document.getElementById("msg");
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+    }, 5000);
+</script>
+{% endblock js%}

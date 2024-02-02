@@ -128,18 +128,112 @@
     box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
   }
 
+  .btn {
+    background: linear-gradient(to bottom right, #8cc092, #aff0b7);
+    border: 0;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 2.5;
+    outline: transparent;
+    padding: .1rem 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s ease-in-out;
+    user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    margin-top: 15px;
+  }
+  
+  .btn:not([disabled]):focus {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  }
+  
+  .btn:not([disabled]):hover {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  }
 
-.btn {
-    background-color: #b6aff0;
+  .btn-comment {
+    background: linear-gradient(to bottom right, #a39dd8, #b6aff0);
+    border: 0;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 2.5;
+    outline: transparent;
+    padding: .1rem 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s ease-in-out;
+    user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    margin-top: 15px;
+  }
+  
+  .btn-comment:not([disabled]):focus {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(203, 199, 244, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  }
+  
+  .btn-comment:not([disabled]):hover {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(203, 199, 244, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  }
+
+  
+.registration {
+    background-color: #fae7f8;
+    padding: 10px 10px 30px 10px;
+    border-radius: 10px;
+    position:inherit;
+    margin: 30px auto 20px auto;
+    width: 30%;
+    height: 90%;
+
 }
+
+.registrer_input{
+    margin-bottom: 5px;
+}
+
+input {
+    border-radius: 4px;
+    margin-bottom: 7px;
+}
+
+textarea#id_body { 
+    border-radius: 4px;
+    resize:none;
+
+}
+
+
 
 .detail-img {
     padding: 0;
 }
 
+.helptext {
+    font-size: 9px;
+    color: #555;
+    margin-top: 5px;
+}
 
+.body-experience  {
+    width: 50%;
+}
 
+.comments {
+    margin: 0 40px 20px 0;
+}
 
+hr {
+    margin: 5px 30px 20px 0px;
+}
 /* footer */
 
 footer a {

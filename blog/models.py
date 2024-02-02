@@ -80,7 +80,8 @@ class Experience(models.Model):
         ]
     )
     size = models.IntegerField(
-        default=0,
+        help_text="Min 1, max 100",
+        default=1,
         validators=[
             MinValueValidator(1, message="Ensure this value is greater than or equal to 1."),
             MaxValueValidator(100, message="Ensure this value is less than or equal to 100."),

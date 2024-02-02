@@ -23,6 +23,7 @@
     </script>
    {% comment %} Link to css {% endcomment %}
    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
@@ -104,5 +105,14 @@
     <script src="https://kit.fontawesome.com/7cf492ae91.js" crossorigin="anonymous"></script>
 
 </body>
-
+{% block js %}
+<!-- Message Alert Timeout Credit - Code Institute, I think therefore I blog -->
+<script>
+    setTimeout(function() {
+        let messages = document.getElementById("msg");
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+    }, 5000);
+</script>
+{% endblock js%}
 </html>

@@ -8,10 +8,10 @@
 {% load crispy_forms_tags %}
 
 <!-- Lizard blog post content -->
-<div class="container">
+<div class="container detail-post">
     <div class="row">
             {% if 'default' in lizard.image.url %}
-            <img src="{% static 'images/lizard_placeholder.jpg' %}" class="col-md-5 rounded card detail-img" alt="Lizard (post) placeholder. There is no image yet.">
+            <img src="{% static 'images/lizard_placeholder_image.jpg' %}" class="col-md-5 rounded card detail-img" alt="Lizard (post) placeholder. There is no image yet.">
             {% else %}
             <img src="{{ lizard.image.url }}" class="col-md-5 rounded card detail-img" alt="{{ lizard.title }}">
             {% endif %}
@@ -19,34 +19,34 @@
             <div class="card-body d-flex justify-content-end flex-column flex-wrap">
                 <div class="h3"> {{ lizard.title }} </div>
                 <h6 class="card-subtitle mb-6 text-body-secondary">Created by {{lizard.author}}</h6>
-                <p> {{ lizard.description }} </p>
-                <p class="mt-auto"> {{lizard.created_on }} </p>
+                <p class="content"> {{ lizard.description }} </p>
+                <p class="mt-auto content"> {{lizard.created_on }} </p>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-5 card">
             <div class="card-body">
-                <div class="h5"> The maximum size: </div>
-                <p>{{ lizard.max_size }} cm</p>
+                <div class="h5 content"> The maximum size: </div>
+                <p class="content">{{ lizard.max_size }} cm</p>
                 <hr>
-                <div class="h5"> Lifespan: </div>
-                <p> {{ lizard.lifespan }} years </p>
+                <div class="h5 content"> Lifespan: </div>
+                <p class="content"> {{ lizard.lifespan }} years </p>
                 <hr>
-                <div class="h5"> Price range: </div>
+                <div class="h5 content"> Price range: </div>
                 <hr>
-                <p><strong>Price from:</strong> &dollar;{{ lizard.price_from }} </p>
-                <p><strong>Price to:</strong> &dollar;{{ lizard.price_to }} </p>
+                <p class="content"><strong>Price from:</strong> &dollar;{{ lizard.price_from }} </p>
+                <p class="content"><strong>Price to:</strong> &dollar;{{ lizard.price_to }} </p>
             </div>
         </div>
         <div class="col-md-6 card">
             <div class="card-body">
-                <div class="h5"> Diet: </div>
+                <div class="h5 content"> Diet: </div>
                 <hr>
-                <h6>Feeding habits:</h6>
-                <p> {{ lizard.get_diet_display }} </p>
-                <h6>Diet consisting of:</h6>
-                <p> {{ lizard.diet_list }} </p>
+                <h6 class="content">Feeding habits:</h6>
+                <p class="content"> {{ lizard.get_diet_display }} </p>
+                <h6 class="content">Diet consisting of:</h6>
+                <p class="content"> {{ lizard.diet_list }} </p>
             </div>
         </div>
     </div>
@@ -54,42 +54,38 @@
 <!-- Likes -->
 <div class="icons-container">
     {% if user.is_authenticated %}
-    <div>
-        <span class="totals">Your opinion:</span>
+    <div class="post-icons">
         <form action="{% url 'lizard_like' lizard.slug %}" method="POST">
             {% csrf_token %}
             {% if liked %}
             <span>
-                <button class="btn-like" type="submit" name="lizard_id" value="{{lizard.slug}}">
-                    <i class="fa-regular fa-thumbs-up"></i> 
+                <button class="btn-secondary like-review" type="submit" name="lizard_id" value="{{lizard.slug}}">
+                    <i class="fa-regular fa-thumbs-up" aria-hidden="true"></i> Like {{ lizard.number_of_likes }}
                 </button>
-                {{ lizard.number_of_likes }}
             </span>
             {% else %}
             <span>
-                <button class="btn-like" type="submit" name="lizard_id" value="{{lizard.slug}}">
-                    <i class="fa-regular fa-thumbs-up"></i>
+                <button class="btn-secondary like-review" type="submit" name="lizard_id" value="{{lizard.slug}}">
+                    <i class="fa-regular fa-thumbs-up" aria-hidden="true"></i> Like {{ lizard.number_of_likes }}
                 </button>
-                {{ lizard.number_of_likes }}
             </span>
             {% endif %}
         </form>
     </div>
     {% endif %}
-    <div>
-        <span class="totals">TOTAL LIKES:</span>
-        <span class="btn-like no-border"><i class="fa-regular fa-thumbs-up"></i></span>
-        <span>{{ lizard.number_of_likes }} </span>
+    <div class="post-icons">
+        <span class="totals">TOTAL LIKES: </span>
+        <span class="btn-like no-border"><i class="fa-regular fa-thumbs-up"></i> {{ lizard.number_of_likes }} </span>
     </div>
     <!-- post comments count -->
-    <div>
+    <div class="post-icons">
         <span class="totals">TOTAL COMMENTS:</span>
         {% with experiences.count as total_experiences %}
-        <span class="btn-like m-1"><i class="fa-solid fa-comment m-1"></i> {{ total_experiences }}</span>
+        <span class="btn-like m-1"><i class="fa-regular fa-comment"></i> {{ total_experiences }} </span>
         {% endwith %}
     </div>
-    <div>
-        <a class="btn btn-signup mt-4" href="{% url 'home' %}">Go Back</a>
+    <div class="post-icons">
+        <a class="btn-back mt-4" href="{% url 'home' %}">&laquo; Previous</a>
     </div>
     <div class="row">
         <div class="col">
@@ -107,7 +103,8 @@
                     {% for experience in experiences %}
                         <div class="comments">
                             <div>
-                                <p class="post-icon mt-1"><i class="fa-solid fa-user pr-1"></i> {{ user.username }}
+                                <p class="post-icon mt-1">
+                                    <i class="fa-solid fa-user pr-1"></i> {{ request.user }}
                                     <i class="fa-solid fa-dragon"></i> {{ experience.pet_name}} 
                                     <i class="fa-solid fa-ruler-horizontal"></i> {{ experience.size }} cm
                                     <i class="fa-solid fa-calendar-days"></i> <span>{{ experience.created_on }}</span>
@@ -144,7 +141,7 @@
                     {% csrf_token %}
                     {{ experience_form }}
 
-                    <button type="submit" class="btn-comment btn-signup btn-md mt-2">Submit</button>
+                    <button type="submit" class="btn-comment btn-signup btn-md mt-2"> &#129422 Submit</button>
                 </form>
             </div>
             {% endif %}

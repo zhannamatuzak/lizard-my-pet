@@ -31,7 +31,7 @@
     <!-- navigation -->
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark dark-bg">
         <div class="container-fluid">
-            <a class="navbar-brand logo" href="{% url 'home' %}"><img src="/static/images/logo_image.png" height="90" width="90" alt="Lizard Is My Pet logo"></a>
+            <a class="navbar-brand logo" href="{% url 'home' %}"><img src="{% static 'images/logo_image.png' %}" height="90" width="90" alt="Lizard Is My Pet logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -46,7 +46,7 @@
                         <a class="nav-link" href="{% url 'account_logout' %}">Sign out</a>
                     </li>
                     <li class="nav-item"> 
-                        <span>  {{ request.user }} <i class="fa-regular fa-user"></i></span> 
+                        <span class="nav-link web-user">  <i class="fa-regular fa-user"></i> {{ request.user }} </span> 
                     </li>
                     {% else %}
                     <li class="nav-item">
@@ -103,7 +103,7 @@
 
     <!--font awesome script-->
     <script src="https://kit.fontawesome.com/7cf492ae91.js" crossorigin="anonymous"></script>
-
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 {% block js %}
 <!-- Message Alert Timeout Credit - Code Institute, I think therefore I blog -->

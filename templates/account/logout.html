@@ -7,7 +7,7 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container registration">
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
             <h3>{% trans "Sign Out" %}</h3>
@@ -23,7 +23,7 @@
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button class="btn btn-signup right mb-3" type="submit">{% trans 'Sign Out' %}</button>
+                <button class="btn btn-signup right mb-3" type="submit"> <i class="fa-solid fa-dragon"></i> {% trans 'Sign Out' %}</button>
             </form>
         </div>
     </div>

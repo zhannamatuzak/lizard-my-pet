@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['lizard-my-pet-59221c9c04e1.herokuapp.com', '8000-zhannamatuz-lizardmypet-vo1xk8maeee.ws-eu107.gitpod.io']
+ALLOWED_HOSTS = ['lizard-my-pet-59221c9c04e1.herokuapp.com', '8000-zhannamatuz-lizardmypet-vo1xk8maeee.ws-eu108.gitpod.io']
 
 
 # Application definition
@@ -61,6 +61,7 @@ LOGOUT_REDIRECT_URL = '/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MESSAGE_TAGS = {
+        messages.DEBUG: 'alert-info',
         messages.INFO: 'alert-info',
         messages.SUCCESS: 'alert-success',
         messages.WARNING: 'alert-warning',
@@ -116,7 +117,7 @@ DATABASES = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://*.8000-zhannamatuz-lizardmypet-vo1xk8maeee.ws-eu107.gitpod.io",
+    "https://*.8000-zhannamatuz-lizardmypet-vo1xk8maeee.ws-eu108.gitpod.io",
     "https://*.lizard-my-pet-59221c9c04e1.herokuapp.com"
 ]
 # Password validation

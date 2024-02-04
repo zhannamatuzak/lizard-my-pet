@@ -13,3 +13,4 @@ urlpatterns = [
     path('404', views.Page404.as_view(), name='404'),
     path('500', views.Page500.as_view(), name='500'),
 ]
+

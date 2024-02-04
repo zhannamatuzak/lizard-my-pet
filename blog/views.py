@@ -8,7 +8,7 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.mixins import UserPassesTestMixin
 from .models import Lizard, Experience
-from .forms import ExperienceForm, EditForm
+from .forms import ExperienceForm
 
 from django.contrib.messages.views import SuccessMessageMixin
 
@@ -84,55 +84,54 @@ class LizardLike(LoginRequiredMixin, View):
         return HttpResponseRedirect(reverse('lizard_detail', args=[slug]))
 
 
-class ExperienceDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+class ExperienceDelete(DeleteView):
     """
     If user is logged in,
     he will be redirected to delete_comment.html template.
     User will be prompted with a message to confirm deletion.
     """
     model = Experience
-    template_name = "delete_experience.html"
-
-    def test_func(self):
-        experience = self.get_object()
-        return self.request.user.username == experience.user
-
-    def delete(self, request, *args, **kwargs):
-        return super(ExperienceDelete, self).delete(request, *args, **kwargs)
-
-    def get_success_url(self, *args, **kwargs):
-        LizardDetail.experience_deleted = True
-        messages.success(self.request, 'Your experience has been deleted.')
-        return reverse("lizard_detail", kwargs={"slug": self.object.post.slug})
+    template_name = "blog/delete_experience.html"
 
 
-class ExperienceEdit(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    def get_success_url(self):
+        """Send the user to this url when edit successful"""
+        lizard = self.object.post
+        lizard_slug = lizard.slug
+        messages.success(self.request, "Experience Successfully Deleted")
+        return reverse('lizard_detail', kwargs={"slug": lizard_slug})
+
+
+class ExperienceEdit(UpdateView):
     """
     If user is logged in,
     he will be redirected to update_experience.html template.
     """
     model = Experience
-    form_class = EditForm
-    template_name = "edit_experience.html"
+    class_form = ExperienceForm
+    template_name = "blog/edit_experience.html"
+    fields = ['pet_name', 'size', 'body']
 
     def test_func(self):
         experience = self.get_object()
         return self.request.user.username == experience.user
 
     def form_valid(self, form):
-        """
-        After successful completion, display a success message to the user
-        """
-        super().form_valid(form)
+    # Call the parent class's form_valid method to perform default actions
+        response = super().form_valid(form)
+    
+    # Display a success message to the user
         messages.success(self.request, 'Your shared experience has been edited.')
-        return HttpResponseRedirect(self.get_success_url())
 
-    def get_success_url(self, *args, **kwargs):
-        """
-        After success, the user will be returned to the post/lizard detail page.
-        """
-        LizardDetail.experience_edited = True
-        return reverse("lizard_detail", kwargs={"slug": self.object.post.slug})
+    # Redirect the user to the lizard_detail page with the updated slug
+        return HttpResponseRedirect(reverse("lizard_detail", kwargs={"slug": self.object.post.slug}))
+
+    def get_success_url(self):
+        """Send the user to this url when edit successful"""
+        lizard = self.object.post
+        lizard_slug = lizard.slug
+        messages.success(self.request, "Shared experience Successfully Updated")
+        return reverse('lizard_detail', kwargs={"slug": lizard_slug})
 
 
 class Page403(TemplateView):

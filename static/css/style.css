@@ -146,7 +146,7 @@ textarea#id_body {
     border: none;
     background-color: white;
     border-radius: 1rem;
-    margin: 1.2rem;
+    margin: 1.5rem;
 }
 
 .card-body {
@@ -172,7 +172,7 @@ textarea#id_body {
     position: absolute;
     bottom: 5%;
     min-width: 30%;
-    left: -2px;
+    left: -5px;
     background-color: #b6aff0;
     border-radius: .2rem;
 }
@@ -247,6 +247,7 @@ textarea#id_body {
     font-family: 'Amatic SC', cursive;
     font-size: 18px;
 }
+
 /* Blog post content detail */
 
 
@@ -402,6 +403,13 @@ textarea#id_body {
 
 hr {
     margin: 5px 30px 20px 10px;
+}
+
+.body-experience {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* footer */

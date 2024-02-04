@@ -10,6 +10,7 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 from .models import Lizard, Experience
 from .forms import ExperienceForm
 
+
 from django.contrib.messages.views import SuccessMessageMixin
 
 class LizardList(generic.ListView):
@@ -111,19 +112,17 @@ class ExperienceEdit(UpdateView):
     class_form = ExperienceForm
     template_name = "blog/edit_experience.html"
     fields = ['pet_name', 'size', 'body']
+   
 
     def test_func(self):
         experience = self.get_object()
         return self.request.user.username == experience.user
 
     def form_valid(self, form):
-    # Call the parent class's form_valid method to perform default actions
+        # Call the parent class's form_valid method to perform default actions
         response = super().form_valid(form)
-    
-    # Display a success message to the user
-        messages.success(self.request, 'Your shared experience has been edited.')
 
-    # Redirect the user to the lizard_detail page with the updated slug
+        # Redirect the user to the lizard_detail page with the updated slug
         return HttpResponseRedirect(reverse("lizard_detail", kwargs={"slug": self.object.post.slug}))
 
     def get_success_url(self):

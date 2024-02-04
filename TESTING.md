@@ -40,7 +40,8 @@ As this is a Django project, the HTML couldn't be tested via the site's URL, due
 | :--- | :--- |
 | [Home Page](documentation/) | Pass |
 | [Lizard Detail](documentation/) | Pass |
-| [Edit Comment](documentation/) | Pass |
+| [Edit Experience](documentation/) | Pass |
+| [Delete Experience](documentation/) | Pass |
 | [Sign up](documentation/)| Pass |
 | [Login](documentation/) | Pass |
 | [Logout](documentation/) | Pass |
@@ -91,7 +92,7 @@ For the performance, accessibility, best practices and SEO of the site for mobil
 
 | Page | Result |
 | :--- | :--- |
-| Home Page | ![image]() |
+| Home Page | ![image](image.png) |
 | Lizard Detail | ![image]() |
 | Edit Experience | ![image]() |
 | Delete Experience | ![image]() |

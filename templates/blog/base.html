@@ -1,12 +1,10 @@
 {% load static %}
-
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
 
 <!DOCTYPE html>
 <html lang="en" class="h-100">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,11 +21,9 @@
     </script>
    {% comment %} Link to css {% endcomment %}
    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
-
     <!-- navigation -->
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark dark-bg">
         <div class="container-fluid">
@@ -114,5 +110,5 @@
         alert.close();
     }, 5000);
 </script>
-{% endblock js%}
+{% endblock js %}
 </html>

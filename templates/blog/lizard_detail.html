@@ -15,7 +15,7 @@
             {% else %}
             <img src="{{ lizard.image.url }}" class="col-md-5 rounded card detail-img" alt="{{ lizard.title }}">
             {% endif %}
-        <div class="col-md-6 card">
+        <div class="col-md-5 card">
             <div class="card-body d-flex justify-content-end flex-column flex-wrap">
                 <div class="h3"> {{ lizard.title }} </div>
                 <h6 class="card-subtitle mb-6 text-body-secondary">Created by {{lizard.author}}</h6>
@@ -39,7 +39,7 @@
                 <p class="content"><strong>Price to:</strong> &dollar;{{ lizard.price_to }} </p>
             </div>
         </div>
-        <div class="col-md-6 card">
+        <div class="col-md-5 card">
             <div class="card-body">
                 <div class="h5 content"> Diet: </div>
                 <hr>
@@ -85,7 +85,7 @@
         {% endwith %}
     </div>
     <div class="post-icons">
-        <a class="btn-back mt-4" href="{% url 'home' %}">&laquo; Previous</a>
+        <a class="btn-back mt-4" href="{% url 'home' %}">&laquo; Go back</a>
     </div>
     <div class="row">
         <div class="col">
@@ -115,12 +115,10 @@
                             </div>
                             {% if request.user == experience.user %}
                                     <div class="col-sm mt-1">
-                                        <a class=" btn-sm btn-edit"
-                                            href="{% url 'edit_experience' lizard.slug experience.pk %}">Edit</a>
-                                        <a class="btn-sm btn-edit"
-                                            href="{% url 'delete_experience' lizard.slug experience.pk %}">Delete</a>
+                                        <a class="edit-icon" href="{% url 'edit_experience' lizard.slug experience.pk %}"><i class="fa-regular fa-pen-to-square" style="color: #1e7abc;"></i></a>
+                                        <a class="edit-icon" href="{% url 'delete_experience' lizard.slug experience.pk %}"><i class="fa-regular fa-trash-can fa-sm" style="color: rgb(234, 129, 147);"></i></a>
                                     </div>
-                                {% endif %}
+                            {% endif %}
                         </div>
                     <hr>
                     {% endfor %}

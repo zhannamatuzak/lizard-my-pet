@@ -9,7 +9,13 @@
             <h3 class="text-center">Edit your Shared Experience:</h3>
             <form class="body-experience" method="post">
                 {% csrf_token %}
-                {{ form_class }}
+                {{ class_form }}
+                {% for field in fields %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                     {{ field }}
+                 </div>
+                 {% endfor %}
                 <div class="text-center">
                     <button type="submit" class="btn-comment btn-signup btn-md mt-2"> &#129422 Submit</button>
                 </div>

@@ -18,7 +18,7 @@ This project follows the agile approach, encompassing the entire development lif
 
 Ensuring the successful implementation of user stories is fundamental to this project. It involves testing to confirm that the delivered features align with specified criteria.
 
-To access comprehensive details, including acceptance criteria and tasks for each user story, please refer to the linked project above. Additionally, each story is categorized with a labeled indicator, signifying its importance to the overall functionality and acceptability of the site. The user stories are closely aligned with their respective epics (Full User Managment, Manage posts, Create, Editing and Deleting Experiences), and three epics are organized under the milestone "Create the full Backend and Frontend". For a detailed view of user stories, please refer to the 'Testing.md' document."
+To access comprehensive details, including acceptance criteria and tasks for each user story, please refer to the linked project above. Additionally, each story is categorized with a labeled indicator, signifying its importance to the overall functionality and acceptability of the site. The user stories are closely aligned with their respective epics (Full User Managment, Manage posts, Create, Editing and Deleting Experiences), and three epics are organized under the milestone "Create the full Backend and Frontend". For a detailed view of user stories, please refer to the ['Testing.md'](https://github.com/zhannamatuzak/lizard-my-pet/blob/main/TESTING.md) document."
 
 ### Scope
 
@@ -43,12 +43,11 @@ The scope of this project encompasses a set of features designed to create an en
 
 I used this palette to style the blog:
 
-![color palette](documentation//pallete_color.jpg)
+![color palette](documentation/palette_color.jpeg)
 
 ### Typography
 
 - The font combination I have seen on the website of one CI student. I liked it and implemented it in my project.
-- The logo was generated using Canva.
 - The headings use Amatic SC with a fallback of cursive and the body text uses Roboto Condensed with a fallback of san-serif.
 
 ### Icons
@@ -93,6 +92,102 @@ About all existing features read below ↓↓↓
 
 ## Features
 
+### Navigation
+
+- The users will have a choice of home, login/logout & register (signup) when visiting the site. 
+- There is a subtle hover state on each of the navigation items for better user experience.
+- For mobile devices, the navigation toggles to a hamburger menu.
+- The logo is placed on the left side of the navitems and it was generated using Canva.
+- When the user is signed up, he/she can see his name and user icon on the navbar next to the navicons.
+
+Site visitor: 
+
+[navbar icons](documentation/logo_navbar.png)
+
+Registered user:
+
+[navbar icons signedup](documentation/navbar_signedin.png)
+
+Hamburger menu:
+
+[navbar icons](documentation/toggle_bar.jpeg)
+
+
+### Lizard List
+
+- The users will have a list of posts about lizards with a title, icons that tell about the post content, “Read more” button, icons with likes and shared experiences counts, and the date.
+- The image and “read more” button are linked, so users may click on either and be taken to the lizard detail page.
+- There is a hover state on the button to show the user they can click on it and be brought to the lizard detail page.
+The author's name is on the image.
+
+[lizard list page](documentation/lizard_list_page.png)
+
+### Lizard Detail
+
+- Each lizard post has four sections: 
+  - image with the discussed lizard,
+  - description with title and author,
+  - information about maximum size, lifespan and prices,
+  - diet information.
+
+[lizard detail section](documentation/lizard_info.png)
+
+### Likes
+
+- If the user isn't logged in, he/she will see the below information:
+
+[lizard detail section](documentation/like_loggedout.png)
+
+- If the user is logged in, they will be able to like the post:
+
+[lizard detail section](documentation/like_loggedin.png)
+
+- The user is able to easily return to the home page using the go back button or clicking the logo at the top of the page.
+
+### Shared experiences (Comments)
+
+- If a lizard post doesn't have any shared experiences (comments), the user will not see the shared experience form.
+
+- The user will be able to edit their comment using a form and be alerted using a message that disappears after 5 seconds.
+
+- The user will be able to delete their comment after being prompted and can go back if desired or will proceed and receive a success message.
+[shared experiences](documentation/share_experience.png)
+
+- Details about editing and deleting shared experiences, as well as the validation process during the creation, updating, and deleting of experiences, can be found in the corresponding user stories and test cases.
+
+[USER STORY: Share Experience (comment)](https://github.com/zhannamatuzak/lizard-my-pet/issues/16)
+[USER STORY: Editing Experiences](https://github.com/zhannamatuzak/lizard-my-pet/issues/15)
+[USER STORY: Delete Shared Experiences](https://github.com/zhannamatuzak/lizard-my-pet/issues/13)
+
+### Register (sign up)
+
+- The user will be able to easily sign up as a user using the below form.
+- If users are already registered, there is a link to easily navigate to login instead
+
+[signup form](documentation/signup_form.png)
+
+### Login/Logout 
+
+- The users can easily sign in using the below form with an option to 'remember me' if desired.
+- If a user hasn't registered, there is a link to easily navigate to sign up instead.
+
+[signin form](documentation/signin_form.png)
+
+- The user is prompted with a message before logging out:
+
+[log out](documentation/sign_out_page.png)
+
+
+### Footer
+- The footer links directly to the social media pages of the plant care blog.
+- There is a subtle hover state on each icon for better user experience.
+
+### Error 404/403/
+- There are error pages in place in case a user is taken to a restricted area or the page doesn't exist.
+
+### Features for Future Development
+
+- to add modal for deleting shared experiences instead of using a separate delete page.
 
 ---
 

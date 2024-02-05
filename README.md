@@ -43,7 +43,7 @@ The scope of this project encompasses a set of features designed to create an en
 
 I used this palette to style the blog:
 
-![color palette](documentation/palette_color.jpeg)
+To see the color palette, [click hier](documentation/palette_color.jpeg)
 
 ### Typography
 
@@ -102,15 +102,15 @@ About all existing features read below ↓↓↓
 
 Site visitor: 
 
-[navbar icons](documentation/logo_navbar.png)
+![navbar icons](documentation/logo_navbar.png)
 
 Registered user:
 
-[navbar icons signedup](documentation/navbar_signedin.png)
+![navbar icons signedup](documentation/navbar_signedin.png)
 
 Hamburger menu:
 
-[navbar icons](documentation/toggle_bar.jpeg)
+![navbar icons](documentation/toggle_bar.jpeg)
 
 
 ### Lizard List
@@ -120,7 +120,7 @@ Hamburger menu:
 - There is a hover state on the button to show the user they can click on it and be brought to the lizard detail page.
 The author's name is on the image.
 
-[lizard list page](documentation/lizard_list_page.png)
+![lizard list page](documentation/lizard_list_page.png)
 
 ### Lizard Detail
 
@@ -130,17 +130,17 @@ The author's name is on the image.
   - information about maximum size, lifespan and prices,
   - diet information.
 
-[lizard detail section](documentation/lizard_info.png)
+![lizard detail section](documentation/lizard_info.png)
 
 ### Likes
 
 - If the user isn't logged in, he/she will see the below information:
 
-[lizard detail section](documentation/like_loggedout.png)
+![lizard detail section](documentation/like_loggedout.png)
 
 - If the user is logged in, they will be able to like the post:
 
-[lizard detail section](documentation/like_loggedin.png)
+![lizard detail section](documentation/like_loggedin.png)
 
 - The user is able to easily return to the home page using the go back button or clicking the logo at the top of the page.
 
@@ -151,13 +151,9 @@ The author's name is on the image.
 - The user will be able to edit their comment using a form and be alerted using a message that disappears after 5 seconds.
 
 - The user will be able to delete their comment after being prompted and can go back if desired or will proceed and receive a success message.
-[shared experiences](documentation/share_experience.png)
+![shared experiences](documentation/share_experience.png)
 
-- Details about editing and deleting shared experiences, as well as the validation process during the creation, updating, and deleting of experiences, can be found in the corresponding user stories and test cases.
-
-[USER STORY: Share Experience (comment)](https://github.com/zhannamatuzak/lizard-my-pet/issues/16)
-[USER STORY: Editing Experiences](https://github.com/zhannamatuzak/lizard-my-pet/issues/15)
-[USER STORY: Delete Shared Experiences](https://github.com/zhannamatuzak/lizard-my-pet/issues/13)
+- Details about editing and deleting shared experiences, as well as the validation process during the creation, updating, and deleting of experiences, can be found in the corresponding user stories and test cases: [USER STORY: Share Experience (comment)](https://github.com/zhannamatuzak/lizard-my-pet/issues/16), [USER STORY: Editing Experiences](https://github.com/zhannamatuzak/lizard-my-pet/issues/15), [USER STORY: Delete Shared Experiences](https://github.com/zhannamatuzak/lizard-my-pet/issues/13).
 
 ### Register (sign up)
 
@@ -188,6 +184,7 @@ The author's name is on the image.
 ### Features for Future Development
 
 - to add modal for deleting shared experiences instead of using a separate delete page.
+- Use JavaScript to reload or refresh an existing template. It will allow a form to be populated with an existing comment.  
 
 ---
 

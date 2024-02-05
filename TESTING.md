@@ -49,7 +49,19 @@ As this is a Django project, the HTML couldn't be tested via the site's URL, due
 
 ### CSS
 
-[W3C](https://validator.w3.org/) was used to validate the CSS.
+[Jigsaw](https://jigsaw.w3.org/css-validator/) was used to validate the CSS.
+
+![css validation](documentation/css_validator.png)
+
+Error: When changeing DEBUG to False, the style was not applied.
+Solution: I have not collect static files locally to collect static files into the STATIC_ROOT directory.
+So, I collect:
+
+```
+
+python manage.py collectstatic
+
+```
 
 ### Python
 
@@ -69,20 +81,17 @@ As this is a Django project, the HTML couldn't be tested via the site's URL, due
 
 ## Visual (UI) Testing: Cross Browser and Cross Device Testing
 
-- The below combination of devices, browsers, and operating system were used to test the website. A range of viewport sizes were checked to see if users would have the same experience across multiple devices and browsers. Priority was given to mobile devices and tablets. 
+- The below combination of devices, browsers were used to test the website. A range of viewport sizes were checked to see if users would have the same experience across multiple devices and browsers. Priority was given to mobile devices and tablets. 
 
-| **TOOL / Device**           | **BROWSER**      | **OS**  | **SCREEN WIDTH** | Passed 
-|-----------------------------|------------------|---------|------------------|---------
-| dev tools: Galaxy Fold      | Chrome           | android | 280 x 653 px     |
-| dev tools: iPhone SE        | safari           | iOs     | 375 x 667 px     |
-| dev tools: Samsung S8+      | Chrome           | android | 360 x 740 px     |
-| real phone: Pixel 6         | Chrome           | android | 393 x 851 px     |
-| real phone: iPhone 14 Pro   | safari           | iOs     | 390 x 844 px     |
-| browserstack: Nexus 7       | Firefox          | android | 960 x 600 px     |
-| real tablet: Pixel Tablet   | Chrome           | android | 834 x 1075 px    |
-| real laptop: Macbook Pro    | Firefox & Chrome | iOs     | 1400 x 766 px    |
-| broswerstack                | Firefox          | iOs     | 1440 x 672 px    |
-| browserstack                | Edge 113         | windows | 1440 x 672 px    |
+| **TOOL / Device**           | **BROWSER**      | **SCREEN WIDTH** | Passed 
+|-----------------------------|------------------|------------------|---------
+| resp viewer: Galaxy Note 3  | Chrome           | 360 x 640 px     | yes
+| resp viewer: Galaxy S9 Plus | Chrome           | 412 x 846 px     | yes
+| resp viewer: iPad           | Chrome           | 446 x 1024 px    | yes
+| real phone: Galaxy A52s 5G  | Chrome           | 1080 x 2400 px   | yes
+| resp viewer: Laptop         | Chrome           | 1280 x 800 px    | yes
+| resp viewer: Nexus 7        | Firefox          | 960 x 600 px     | yes
+| dev tools:                  | Edge             | 780 x 995 px     | yes
 
 ## Lighthouse
 
@@ -92,12 +101,12 @@ For the performance, accessibility, best practices and SEO of the site for mobil
 
 | Page | Result |
 | :--- | :--- |
-| Home Page | [home pagel](image-2.png) |
-| Lizard Detail | [lizard detail](image-1.png) |
-| Edit Experience | ([edit experience](image-13.png)) |
-| Delete Experience | [delete experience](image-11.png) |
-| Sign up |[sign up page](image-8.png) |
-| Sign in | [sign in page](image-4.png) |
+| Home Page | ![home pagel](image-2.png) |
+| Lizard Detail | ![lizard detail](image-1.png) |
+| Edit Experience !| ([edit experience](image-13.png)) |
+| Delete Experience !| [delete experience](image-11.png) |
+| Sign up |![sign up page](image-8.png) |
+| Sign in | ![sign in page](image-4.png) |
 
 - Desktop performed well on all major pages of the site with minimal improvements needed.
 
@@ -105,12 +114,12 @@ For the performance, accessibility, best practices and SEO of the site for mobil
 
 | Page | Result |
 | :--- | :--- |
-| Home Page | [home page](image-14.png) |
-| Lizard Detail | [lizard detail](image-3.png) |
-| Edit Experience | [edit experience](image-12.png) |
-| Delete Experience | [delete experience](image-10.png) |
-| Sign up | [sign up page](image-7.png) |
-| Sign in | [sign in page](image-5.png) |
+| Home Page | ![home page](image-14.png) |
+| Lizard Detail | ![lizard detail](image-3.png) |
+| Edit Experience | ![edit experience](image-12.png) |
+| Delete Experience | ![delete experience](image-10.png) |
+| Sign up | ![sign up page](image-7.png) |
+| Sign in | ![sign in page](image-5.png) |
 
 ## Outstanding Defects
 - There are no outstanding defects.

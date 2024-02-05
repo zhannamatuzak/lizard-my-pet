@@ -4,9 +4,13 @@
 
 This Django project functions as a specialized blog designed for individuals contemplating the idea of adopting a 🦎 lizard as a pet. It caters not only to those in search of essential information for decision-making but also to experienced lizard owners eager to share their firsthand experiences. Owners are invited to share insights into various aspects of daily life with their lizard, including preferred food choices, potential size and growth, lifespan, and even unique names for these captivating pets. The administrator provides visitors with posts about various lizard species, offering a comprehensive overview to assist them in making informed decisions. Simultaneously, visitors who have a lizard as a pet can actively contribute by sharing their own experiences in the experience (comments) section below each post. Reading about the experiences of others serves as a valuable resource for decision-making too. Only registered users have access to submit their experiences across all posts and to like the posts.
 
+Desktop mockup:
+
 ![responsive mockup desktop](documentation//mockup_desktop.png)
 
-![responsive mockup desktop](documentation/mockup_handy.png)
+Mobile mockup:
+
+![responsive mockup desktop](documentation/mockup_mobile.png)
 
 
 [Link to live site](https://lizard-my-pet-59221c9c04e1.herokuapp.com/) 

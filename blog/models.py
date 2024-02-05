@@ -2,7 +2,11 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
-from django.core.validators import MinValueValidator, MaxValueValidator, RegexValidator
+from django.core.validators import (
+    MinValueValidator,
+    MaxValueValidator,
+    RegexValidator
+)
 
 DIET = [
         ("0", "Not defined"),
@@ -11,6 +15,7 @@ DIET = [
         ("3", "Insectivorous"),
     ]
 STATUS = ((0, "Draft"), (1, "Published"))
+
 
 class Lizard(models.Model):
     """Lizard Database Model
@@ -42,20 +47,19 @@ class Lizard(models.Model):
         help_text="Format: Letters only and max 400 characters",
         validators=[
             RegexValidator(
-                regex=r'^[A-Za-z0-9\s\.,!?]*$', 
+                regex=r'^[A-Za-z0-9\s\.,!?]*$',
                 message="Ensure the body only contains letters, numbers, spaces, commas, periods, and exclamation/question marks."
             ),
         ]
     )
     status = models.IntegerField(choices=STATUS, default=0)
-   
 
     class Meta:
         ordering = ['-created_on']
 
     def __str__(self):
         return self.title
-    
+
     def number_of_likes(self):
         return self.likes.count()
 
@@ -83,8 +87,8 @@ class Experience(models.Model):
         help_text="Min 1, max 100",
         default=1,
         validators=[
-            MinValueValidator(1, message="Ensure this value is greater than or equal to 1."),
-            MaxValueValidator(100, message="Ensure this value is less than or equal to 100."),
+            MinValueValidator(1, message="value is greater than or = to 1."),
+            MaxValueValidator(100, message="value is less than or = to 100."),
         ],
     )
     body = models.TextField(
@@ -93,7 +97,7 @@ class Experience(models.Model):
         help_text="Share your experience in 800 Characters"
     )
     created_on = models.DateField(auto_now_add=True)
-    
+
     class Meta:
         ordering = ['created_on']
 

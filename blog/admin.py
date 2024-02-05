@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Lizard, Experience
 from django_summernote.admin import SummernoteModelAdmin
 
+
 @admin.register(Lizard)
 class LizardAdmin(SummernoteModelAdmin):
 

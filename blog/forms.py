@@ -2,12 +2,13 @@
 from django import forms
 from .models import Experience
 
+
 class ExperienceForm(forms.ModelForm):
     """Experience input form"""
     class Meta:
         "Metadata about form"
         model = Experience
-        fields = ['pet_name', 'size', 'body',]
+        fields = ['pet_name', 'size', 'body', ]
         labels = {
             'pet_name': "Write your pet's name:",
             'size': 'Approximate size of your pet:',

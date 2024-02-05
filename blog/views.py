@@ -13,6 +13,7 @@ from .forms import ExperienceForm
 
 from django.contrib.messages.views import SuccessMessageMixin
 
+
 class LizardList(generic.ListView):
     model = Lizard
     queryset = Lizard.objects.filter(status=1).order_by('-created_on')
@@ -39,7 +40,7 @@ class LizardDetail(SuccessMessageMixin, View):
                 "liked": liked,
                 "experience_form": ExperienceForm()
             },
-        )   
+        )
 
     def post(self, request, slug, *args, **kwargs):
         queryset = Lizard.objects.filter(status=1)
@@ -68,9 +69,10 @@ class LizardDetail(SuccessMessageMixin, View):
                 "experiences": experiences,
                 "commented": True,
                 "liked": liked,
-                "experience_form": ExperienceForm() 
+                "experience_form": ExperienceForm()
             },
         )
+
 
 class LizardLike(LoginRequiredMixin, View):
 
@@ -112,7 +114,6 @@ class ExperienceEdit(UpdateView):
     class_form = ExperienceForm
     template_name = "blog/edit_experience.html"
     fields = ['pet_name', 'size', 'body']
-   
 
     def test_func(self):
         experience = self.get_object()
@@ -123,7 +124,9 @@ class ExperienceEdit(UpdateView):
         response = super().form_valid(form)
 
         # Redirect the user to the lizard_detail page with the updated slug
-        return HttpResponseRedirect(reverse("lizard_detail", kwargs={"slug": self.object.post.slug}))
+        return HttpResponseRedirect(
+            reverse("lizard_detail", kwargs={"slug": self.object.post.slug})
+        )
 
     def get_success_url(self):
         """Send the user to this url when edit successful"""
@@ -139,7 +142,3 @@ class Page403(TemplateView):
 
 class Page404(TemplateView):
     template_name = '404.html'
-
-
-class Page500(TemplateView):
-    template_name = '500.html'

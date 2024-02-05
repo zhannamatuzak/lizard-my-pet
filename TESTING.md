@@ -92,8 +92,8 @@ For the performance, accessibility, best practices and SEO of the site for mobil
 
 | Page | Result |
 | :--- | :--- |
-| Home Page | ![image](image.png) |
-| Lizard Detail | ![image]() |
+| Home Page | ![image]() |
+| Lizard Detail | ![Alt text](image-1.png) |
 | Edit Experience | ![image]() |
 | Delete Experience | ![image]() |
 | Sign up |![image]() |

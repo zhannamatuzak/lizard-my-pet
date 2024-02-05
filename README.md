@@ -160,19 +160,20 @@ The author's name is on the image.
 - The user will be able to easily sign up as a user using the below form.
 - If users are already registered, there is a link to easily navigate to login instead
 
-[signup form](documentation/signup_form.png)
+![signup form](documentation/signup_form.png)
 
 ### Login/Logout 
 
 - The users can easily sign in using the below form with an option to 'remember me' if desired.
 - If a user hasn't registered, there is a link to easily navigate to sign up instead.
 
-[signin form](documentation/signin_form.png)
+![signin form](documentation/signin_form.png)
 
 - The user is prompted with a message before logging out:
 
-[log out](documentation/sign_out_page.png)
+![log out](documentation/sign_out_page.png)
 
+To learn more details about User Managment, please [click here](https://github.com/zhannamatuzak/lizard-my-pet/issues/3).
 
 ### Footer
 - The footer links directly to the social media pages of the plant care blog.
@@ -631,7 +632,7 @@ If everything works successfully during the deployment process, it will look lik
 
 ## Acknowledgements
 
-- Thank you to my mentor and my cohort members for continuous helpful feedback and support throughout the project.
+- Gratitude to my [mentor Juliia](https://github.com/IuliiaKonovalova/) and cohort members for their ongoing valuable feedback and support during the project.
 - [Paulo](https://github.com/Parbelaez) for tips and guidance in creating user stories.
 - I am grateful to my playback theater community for providing a haven of joy and connection amid challenging times.
 

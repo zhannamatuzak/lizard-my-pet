@@ -29,10 +29,12 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['lizard-my-pet-59221c9c04e1.herokuapp.com', '8000-zhannamatuz-lizardmypet-vo1xk8maeee.ws-eu108.gitpod.io']
-
+ALLOWED_HOSTS = [
+    'lizard-my-pet-59221c9c04e1.herokuapp.com',
+    '8000-zhannamatuz-lizardmypet-vo1xk8maeee.ws-eu108.gitpod.io'
+]
 
 # Application definition
 

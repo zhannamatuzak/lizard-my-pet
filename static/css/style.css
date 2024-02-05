@@ -146,8 +146,6 @@ textarea#id_body {
     background-color: white;
     border-radius: 1rem;
     margin: 1.5rem;
-    width: 80%;
-    height: 90%;
 }
 
 .card-body {
@@ -434,6 +432,15 @@ footer p {
 
 /* Responsive Design Styles for Different Screen Sizes */
 
+/* large devices (desktops, less than 1202px) */
+
+@media (max-width: 1201px) {
+    .detail-img {
+        width: 440px;
+        height: 330px;
+    }
+}
+
 /* everage devices (tablets, less than 992px) */
 
 @media (max-width: 991px) {
@@ -441,7 +448,6 @@ footer p {
         width: 320px;
         height: 200px;
     }
-    
 }
 
 @media (max-width: 780px) {
@@ -492,7 +498,7 @@ footer p {
     .blog-list {
         margin: auto auto;
     }
-
+}
 
 /* small devices (tablets, less than 365px) */
 

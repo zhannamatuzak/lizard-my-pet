@@ -92,12 +92,12 @@ For the performance, accessibility, best practices and SEO of the site for mobil
 
 | Page | Result |
 | :--- | :--- |
-| Home Page | ![image]() |
-| Lizard Detail | ![Alt text](image-1.png) |
-| Edit Experience | ![image]() |
-| Delete Experience | ![image]() |
-| Sign up |![image]() |
-| Sign in | ![image]() |
+| Home Page | [home pagel](image-2.png) |
+| Lizard Detail | [lizard detail](image-1.png) |
+| Edit Experience | ([edit experience](image-13.png)) |
+| Delete Experience | [delete experience](image-11.png) |
+| Sign up |[sign up page](image-8.png) |
+| Sign in | [sign in page](image-4.png) |
 
 - Desktop performed well on all major pages of the site with minimal improvements needed.
 
@@ -105,12 +105,12 @@ For the performance, accessibility, best practices and SEO of the site for mobil
 
 | Page | Result |
 | :--- | :--- |
-| Home Page | ![image]() |
-| Plant Detail | ![image]() |
-| Edit Comment | ![image]() |
-| Delete Comment | ![image]() |
-| Sign up | ![image]() |
-| Login | ![image]() |
+| Home Page | [home page](image-14.png) |
+| Lizard Detail | [lizard detail](image-3.png) |
+| Edit Experience | [edit experience](image-12.png) |
+| Delete Experience | [delete experience](image-10.png) |
+| Sign up | [sign up page](image-7.png) |
+| Sign in | [sign in page](image-5.png) |
 
 ## Outstanding Defects
 - There are no outstanding defects.

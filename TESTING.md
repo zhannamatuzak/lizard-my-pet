@@ -1,5 +1,9 @@
 # Lizard Is My Pet - Testing Documentation
 
+Mobile mockup:
+
+![responsive mockup desktop](documentation/mockup_mobile.png)
+
 ## Manual Testing
 
 ### Testing User Stories
@@ -34,7 +38,7 @@
 | USER STORY: As an **ADMIN USER**, I want the ability to create a new lizard(post) via the Django Admin Panel.  | [#10](https://github.com/zhannamatuzak/lizard-my-pet/issues/10) |  | [x] | 🔴testcase  |
 | USER STORY: A s USER, I would like to view a single post with well-readable and structured information by clicking on the blog post. | [#12](https://github.com/zhannamatuzak/lizard-my-pet/issues/12) |  | [x] | 🔴bug, 🔴testcase |
 
-**Likie and See amount of likes and posts**
+**Like and See amount of likes and posts**
 
 | Title | Number | Definition | Completed? | Label |
 |-------|--------|------------|------------|-------|
@@ -76,7 +80,7 @@ As this is a Django project, the HTML couldn't be tested via the site's URL, due
 | [Error 404](documentation/error.png) | Pass |
 
 Problems:
-- Forms code provided by Django Quill failed HTML W3C Validation for having a for attribute referencing a hidden input type: this is a common issue, that should be noted within the README but it is not necessary to take action over (sourse: [Alfred](https://github.com/AlfredA93/recipe-repo-2/blob/main/TESTING.md), cohort student with whome we had weekly meetups.);
+- Forms code provided by Django Quill failed HTML W3C Validation for having a for attribute referencing a hidden input type: this is a common issue, that should be noted within the README but it is not necessary to take action over (source: [Alfred](https://github.com/AlfredA93/recipe-repo-2/blob/main/TESTING.md),cohort student, with whome we had weekly meetups);
 - summernote;
 
 ### CSS

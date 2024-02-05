@@ -8,11 +8,6 @@ Desktop mockup:
 
 ![responsive mockup desktop](documentation//mockup_desktop.png)
 
-Mobile mockup:
-
-![responsive mockup desktop](documentation/mockup_mobile.png)
-
-
 [Link to live site](https://lizard-my-pet-59221c9c04e1.herokuapp.com/) 
 
 ---
@@ -23,7 +18,7 @@ This project follows the agile approach, encompassing the entire development lif
 
 Ensuring the successful implementation of user stories is fundamental to this project. It involves testing to confirm that the delivered features align with specified criteria.
 
-To access comprehensive details, including acceptance criteria and tasks for each user story, please refer to the linked project above. Additionally, each story is categorized with a labeled indicator, signifying its importance to the overall functionality and acceptability of the site.
+To access comprehensive details, including acceptance criteria and tasks for each user story, please refer to the linked project above. Additionally, each story is categorized with a labeled indicator, signifying its importance to the overall functionality and acceptability of the site. The user stories are closely aligned with their respective epics (Full User Managment, Manage posts, Create, Editing and Deleting Experiences), and three epics are organized under the milestone "Create the full Backend and Frontend". For a detailed view of user stories, please refer to the 'Testing.md' document."
 
 ### Scope
 
@@ -35,6 +30,48 @@ The scope of this project encompasses a set of features designed to create an en
 - User shared experiences (comments) with full front-end CRUD functionality;
 - User likes with full front-end CRUD functionality;
 - Identify and show seit user mumber of shared experiences (comments) per Lizard (post).
+
+## Design Choices
+
+### Colors
+
+- The colourful color palette was used as a topic is about lizards. 
+- The headings, icons and body text are darker to ensure clear contrast and readability for the user across the site.
+- The pink header and footer ensures clear contrast and delineation between sections.
+- The background color of the main is light blue.
+- The area with the text is almost on the white background.
+
+I used this palette to style the blog:
+
+![color palette](documentation//pallete_color.jpg)
+
+### Typography
+
+- The font combination I have seen on the website of one CI student. I liked it and implemented it in my project.
+- The logo was generated using Canva.
+- The headings use Amatic SC with a fallback of cursive and the body text uses Roboto Condensed with a fallback of san-serif.
+
+### Icons
+
+- The icons on the paginated post list provide a clear understanding of each section on the post.
+
+![icons post list](documentation/icons_list.png)
+
+- The familiar Edit and Delete icons were utilized beneath shared experiences (comments) for user convenience.
+
+![edit and delete buttons](documentation/icons.png)
+
+### Animations: links & buttons
+
+- The navbar, social icons (white) and buttons across the site have effects when hovered over by the user.
+
+![buttons](documentation/buttons.png)
+
+- All links have a dark brown color and change the color to light brown when hovered for clear distinction from the body text.
+
+### Responsiveness
+- The website was designed mobile-first using flexbox to ensure responsiveness throughout the website.
+- The standard grid from Bootstrap was used to achieve this.
 
 ### Wireframes
 
@@ -55,7 +92,6 @@ About all existing features read below ↓↓↓
 ---
 
 ## Features
-
 
 
 ---
